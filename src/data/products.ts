@@ -1,4 +1,4 @@
-export const books = [
+const books = [
 	{
 		id: "1",
 		title: "court of dragons",
@@ -6,8 +6,7 @@ export const books = [
 		edition: "Angielski",
 		author: " Frost Kay",
 		rated: "4.3",
-		description: `As a daughter of the Dragon Court, Wren knows three truths: never show weakness, pay the tithe, and never trust the elves.
-    When the enemy strikes on the eve of her wedding, Wren has no choice but to fight. Captured, she's dragged before the elvish king and given two choices.`,
+		description: `As a daughter of the Dragon Court, Wren knows three truths: never show weakness, pay the tithe, and never trust the elves.When the enemy strikes on the eve of her wedding, Wren has no choice but to fight. Captured, she's dragged before the elvish king and given two choices.`,
 		img: "https://images-na.ssl-images-amazon.com/images/I/71pvUZnl56L.jpg",
 		price: 132.18,
 		category: "fantasy",
@@ -121,3 +120,5 @@ export const books = [
 		category: "komiksy",
 	},
 ];
+
+export default books;
