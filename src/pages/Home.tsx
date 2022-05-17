@@ -21,7 +21,7 @@ const Home = () => {
 					</h2>
 					<Filter />
 				</div>
-				<div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center my-12">
+				<div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 justify-items-center my-12">
 					{books.map((book) => {
 						return <Books key={book.id} {...book} />;
 					})}
