@@ -35,7 +35,7 @@ const SingleBook = () => {
 							Wydanie: {product?.edition}
 						</h3>
 						<h3 className="text-xl tracking-wide mb-2 lg:text-2xl">
-							Kategoria: {product?.category}
+							Kategoria: <span className="capitalize">{product?.category}</span>
 						</h3>
 					</div>
 					<div className="max-w-sm mx-auto mt-8 mb-10 lg:row-span-2 lg:col-start-1 lg:col-end-2 lg:order-first lg:max-w-md">
@@ -55,7 +55,7 @@ const SingleBook = () => {
 						<p className="text-xl tracking-wide py-4 mt-2 lg:text-xl">
 							{product?.description}
 						</p>
-						<button className="bg-[#4761A3] py-3 px-5 text-3xl text-white hover:bg-[#384F88] lg:mt-12">
+						<button className="bg-[#4761A3] py-4 px-6 text-3xl text-white hover:bg-[#384F88] lg:mt-12">
 							Add To Cart
 						</button>
 					</div>
