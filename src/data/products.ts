@@ -57,7 +57,7 @@ const books = [
 		description: `Rosie i Alex od dzieciństwa są nierozłączni. Życie zadaje im jednak okrutny cios: rodzice Alexa przenoszą się z Irlandii do Ameryki i chłopiec oczywiście jedzie tam razem z nimi. Czy magiczny związek dwojga młodych ludzi przetrwa lata i tysiące kilometrów rozłąki? Czy wielka przyjaźń przerodziłaby się w coś silniejszego, gdyby okoliczności ułożyły się inaczej? Jeżeli los da im jeszcze jedną szansę, czy Rosie i Alex znajdą w sobie dość odwagi, żeby spróbować się o tym przekonać?`,
 		img: "https://images-na.ssl-images-amazon.com/images/I/9140+AXQdhL.jpg",
 		price: 12.04,
-		category: "Romans",
+		category: "romans",
 	},
 	{
 		id: "6",
@@ -69,7 +69,7 @@ const books = [
 		description: `A Troubled Young Mother Yearns For A Shot At Redemption In This Heartbreaking Yet Hopeful Story From 1 New York Times Bestselling Author Colleen Hoover.After Serving Five Years In Prison For A Tragic Mistake, Kenna Rowan Returns To The Town Where It All Went Wrong, Hoping To Reunite With Her Four-Year-Old Daughter.`,
 		img: "https://images-na.ssl-images-amazon.com/images/I/617uZq23IPL.jpg",
 		price: 45.91,
-		category: "Romans",
+		category: "romans",
 	},
 	{
 		id: "7",
@@ -189,7 +189,7 @@ const books = [
 		description: `Then Hattie gets an idea: what if the two of them could cast a spell that would allow Riley to share Hattie's magic? Their sleuthing reveals a promising incantation in the family's old spell book, and the sisters decide to perform it at Hattie's initiation ceremony. If it works, no one will ever treat Riley as an outsider again. It's a perfect plan!`,
 		img: "https://images-na.ssl-images-amazon.com/images/I/71JP9uOTF-S.jpg",
 		price: 75.46,
-		category: "Bajki",
+		category: "bajki",
 	},
 	{
 		id: "18",
@@ -201,7 +201,7 @@ const books = [
 		description: `Reksio i jego przyjaciele mieszkają na wsi i nigdy nie narzekają na nudę. Bawią się, śmieją, pomagają sobie nawzajem. Najważniejsze, że trzymają się razem i mogą na siebie liczyć. Przyjaźń, współpraca, ciekawość świata, szacunek dla zwierząt – to wartości, których uczą opowiadania o sympatycznym piesku z łatką.`,
 		img: "https://images-na.ssl-images-amazon.com/images/I/51aXOjJzYDL.jpg",
 		price: 20.55,
-		category: "Bajki",
+		category: "bajki",
 	},
 	{
 		id: "19",
@@ -213,7 +213,7 @@ const books = [
 		description: `Rok w lesie można oglądać godzinami. Ta niezwykła książka pobudza wyobraźnię, rozwija spostrzegawczość, zdolność logicznego myślenia, szukania związków przyczynowo-skutkowych, umiejętność opowiadania, a przede wszystkim gwarantuje świetną zabawę.`,
 		img: "https://images-na.ssl-images-amazon.com/images/I/61FA4VhqkiL.jpg",
 		price: 26.59,
-		category: "Bajki",
+		category: "bajki",
 	},
 	{
 		id: "20",
@@ -225,7 +225,7 @@ const books = [
 		description: `"J'ai ainsi vécu seul, sans personne avec qui parler véritablement, jusqu'à une panne dans le désert du Sahara, il y a six ans. Quelque chose s'était cassé dans mon moteur. Et comme je n'avais avec moi ni mécanicien, ni passagers, je me préparai à essayer de réussir, tout seul, une réparation difficile.`,
 		img: "https://images-na.ssl-images-amazon.com/images/I/719fXxqahzL.jpg",
 		price: 33.79,
-		category: "Bajki",
+		category: "bajki",
 	},
 	{
 		id: "21",
@@ -237,7 +237,7 @@ const books = [
 		description: `"Le folklore japonais regorge de contes et de fables mettant en scéne samouras, animaux farceurs et magiques, esprits, monstres et autres sorciéres. La collection de recueils ""Mukashi mukashi"" (Il était une fois, en japonais) vous propose de dcouvrir ses histoires trés populaires au Japon et souvent mconnues hors de l'archipel.`,
 		img: "https://images-na.ssl-images-amazon.com/images/I/519Ld799ncL.jpg",
 		price: 53.49,
-		category: "Bajki",
+		category: "bajki",
 	},
 ];
 
