@@ -14,7 +14,7 @@ const Home = () => {
 			<div className="px-8 lg:flex lg:justify-items-start justify-between max-w-screen-2xl mx-auto">
 				<div>
 					<h2 className="text-3xl tracking-wider flex items-center cursor-pointer lg:cursor-auto w-max">
-						Książki
+						Kategoria
 						<span className="ml-2 lg:hidden">
 							<MdOutlineExpandMore />
 						</span>
