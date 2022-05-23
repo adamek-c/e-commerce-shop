@@ -1,24 +1,29 @@
 import FilterCategory from "./FilterCategory";
 import FilterLanguage from "./FilterLanguage";
+import FilterPrice from "./FilterPrice";
+
 import { allBooks } from "../../features/Filter/filterSlice";
 import { useDispatch } from "react-redux";
-import FilterPrice from "./FilterPrice";
 
 const Filter = () => {
 	const dispatch = useDispatch();
 
+	const handleGiveBooks = () => {
+		dispatch(allBooks());
+	};
+
 	return (
 		<section>
 			<div>
-				<h2 className="mt-8 text-2xl" onClick={() => dispatch(allBooks())}>
+				<h2 className="mt-8 text-2xl" onClick={handleGiveBooks}>
 					Język
 				</h2>
 				<FilterLanguage />
-				<h2 className="mt-8 text-2xl" onClick={() => dispatch(allBooks())}>
+				<h2 className="mt-8 text-2xl" onClick={handleGiveBooks}>
 					Książki
 				</h2>
 				<FilterCategory />
-				<h2 className="mt-8 text-2xl" onClick={() => dispatch(allBooks())}>
+				<h2 className="mt-8 text-2xl" onClick={handleGiveBooks}>
 					Cena
 				</h2>
 				<FilterPrice />

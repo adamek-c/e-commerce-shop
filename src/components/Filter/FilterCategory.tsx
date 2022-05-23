@@ -11,6 +11,12 @@ const FilterCategory = () => {
 
 	const dispatch = useDispatch();
 
+	const handleFilter = (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault();
+		const category = e.currentTarget;
+		dispatch(filterCategory(category.name));
+	};
+
 	return (
 		<div className="flex flex-col justify mt-4">
 			{sortedCategory.map((category, index) => {
@@ -19,7 +25,8 @@ const FilterCategory = () => {
 						key={index}
 						type="button"
 						className="text-left capitalize text-xl my-2 ml-3 hover:ml-5 transition-all"
-						onClick={() => dispatch(filterCategory(category))}
+						name={category}
+						onClick={(e) => handleFilter(e)}
 					>
 						{category}
 					</button>
