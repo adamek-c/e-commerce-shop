@@ -1,42 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import books from "../../data/products";
+import {
+	FilterBooks,
+	Language,
+	Price,
+} from "../../interfaces/FiltrInterfaces/filtr";
 
-interface Book {
-	id: string;
-	title: string;
-	released?: string;
-	edition?: string;
-	author?: string;
-	rated?: number;
-	description: string;
-	img: string;
-	price: number;
-	category?: string;
-}
-
-interface Language {
-	name?: string | undefined;
-	checked?: boolean;
-}
-
-interface Price {
-	minPrice: number;
-	maxPrice: number;
-	checked?: boolean;
-}
-
-interface filterBooks {
-	items: Book[];
-	all_items: Book[];
-	active: boolean;
-	checked: boolean;
-	bookName: string | undefined;
-	bookLanguage: string | undefined;
-	min_price: number;
-	max_price: number;
-}
-
-const initialState: filterBooks = {
+const initialState: FilterBooks = {
 	all_items: books,
 	items: books,
 	active: false,
@@ -118,7 +88,6 @@ const filterSlice = createSlice({
 					return;
 				});
 				state.items = booksPrices;
-				// DOPISKA
 			}
 			if (
 				!state.checked &&

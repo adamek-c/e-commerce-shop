@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../app/store";
-
 import { filterCategory } from "./filterSlice";
 
 const FilterCategory = () => {
