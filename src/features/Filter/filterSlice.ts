@@ -19,6 +19,12 @@ interface Language {
 	checked?: boolean;
 }
 
+interface Price {
+	minPrice: number;
+	maxPrice: number;
+	checked?: boolean;
+}
+
 interface filterBooks {
 	items: Book[];
 	all_items: Book[];
@@ -26,6 +32,8 @@ interface filterBooks {
 	checked: boolean;
 	bookName: string | undefined;
 	bookLanguage: string | undefined;
+	min_price: number;
+	max_price: number;
 }
 
 const initialState: filterBooks = {
@@ -35,6 +43,8 @@ const initialState: filterBooks = {
 	checked: false,
 	bookName: "",
 	bookLanguage: "",
+	min_price: 0,
+	max_price: 0,
 };
 
 const filterSlice = createSlice({
@@ -56,7 +66,6 @@ const filterSlice = createSlice({
 				const category = state.items.filter(
 					(book) => book.category === action.payload
 				);
-				console.log("here");
 				state.bookName = action.payload;
 				state.items = category;
 			} else {
@@ -92,6 +101,32 @@ const filterSlice = createSlice({
 				state.checked = true;
 			}
 		},
+		filterPrice: (state, action: PayloadAction<Price>) => {
+			if (action.payload.checked) {
+				state.min_price = action.payload.minPrice;
+				state.max_price = action.payload.maxPrice;
+
+				state.items = state.items.filter((book) => {
+					if (state.min_price <= book.price && book.price <= state.max_price) {
+						return book;
+					}
+					// eslint-disable-next-line array-callback-return
+					return;
+				});
+			} else if (!action.payload.checked && state.bookName) {
+				state.items = state.all_items.filter(
+					(book) => book.category === state.bookName
+				);
+			} else if (!action.payload.checked && !state.bookLanguage) {
+				state.items = state.all_items.filter(
+					(book) => book.category === state.bookName
+				);
+			} else {
+				state.items = state.all_items;
+				state.min_price = 0;
+				state.max_price = 0;
+			}
+		},
 		allBooks: (state) => {
 			state.items = state.all_items;
 			state.bookName = "";
@@ -104,7 +139,12 @@ const filterSlice = createSlice({
 	},
 });
 
-export const { filterCategory, filterLanguage, allBooks, chcekedValue } =
-	filterSlice.actions;
+export const {
+	filterCategory,
+	filterLanguage,
+	allBooks,
+	chcekedValue,
+	filterPrice,
+} = filterSlice.actions;
 
 export default filterSlice.reducer;

@@ -1,7 +1,22 @@
+import React, { useEffect, useState, ChangeEventHandler } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { filterPrice } from "./filterSlice";
+import { RootState } from "../../app/store";
 
 const FilterPrice = () => {
 	const dispatch = useDispatch();
+
+	const handleFilterPrice: ChangeEventHandler<HTMLInputElement> = (e) => {
+		const minPrice = parseInt(e.target.min);
+		const maxPrice = parseInt(e.target.max);
+		const checked = e.target.checked;
+
+		if (checked) {
+			dispatch(filterPrice({ minPrice, maxPrice, checked }));
+		} else {
+			dispatch(filterPrice({ minPrice, maxPrice, checked }));
+		}
+	};
 
 	return (
 		<div className="mt-4">
@@ -13,6 +28,7 @@ const FilterPrice = () => {
 					min="0"
 					max="15"
 					className="cursor-pointer"
+					onChange={(e) => handleFilterPrice(e)}
 				/>
 				<label
 					htmlFor="price-fifteen"
@@ -29,6 +45,7 @@ const FilterPrice = () => {
 					min="15"
 					max="50"
 					className="cursor-pointer"
+					onChange={(e) => handleFilterPrice(e)}
 				/>
 				<label
 					htmlFor="price-fifty"
@@ -45,6 +62,7 @@ const FilterPrice = () => {
 					min="50"
 					max="100"
 					className="cursor-pointer"
+					onChange={(e) => handleFilterPrice(e)}
 				/>
 				<label
 					htmlFor="price-hundred"
@@ -56,14 +74,15 @@ const FilterPrice = () => {
 			<div className="my-2">
 				<input
 					type="checkbox"
-					name="price-twenty-five"
-					id="price-twenty-five"
+					name="price-houndred"
+					id="price-houndred"
 					min="100"
 					max="125"
 					className="cursor-pointer"
+					onChange={(e) => handleFilterPrice(e)}
 				/>
 				<label
-					htmlFor="price-twenty-five"
+					htmlFor="price-houndred"
 					className="capitalize text-xl my-2 ml-3 cursor-pointer"
 				>
 					100 do 125 zł
@@ -75,7 +94,9 @@ const FilterPrice = () => {
 					name="price-twenty-five"
 					id="price-twenty-five"
 					min="100"
+					max="9999"
 					className="cursor-pointer"
+					onChange={(e) => handleFilterPrice(e)}
 				/>
 				<label
 					htmlFor="price-twenty-five"

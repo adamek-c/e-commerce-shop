@@ -1,6 +1,6 @@
-import FilterCategory from "./FilterCategory";
-import FilterLanguage from "./FilterLanguage";
-import FilterPrice from "./FilterPrice";
+import FilterCategory from "../../features/Filter/FilterCategory";
+import FilterLanguage from "../../features/Filter/FilterLanguage";
+import FilterPrice from "../../features/Filter/FilterPrice";
 
 import { allBooks } from "../../features/Filter/filterSlice";
 import { useDispatch } from "react-redux";

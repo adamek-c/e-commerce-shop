@@ -1,10 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../app/store";
 
-import {
-	filterLanguage,
-	chcekedValue,
-} from "../../features/Filter/filterSlice";
+import { filterLanguage, chcekedValue } from "./filterSlice";
 
 const FilterLanguage = () => {
 	const bookLanguage = useSelector(

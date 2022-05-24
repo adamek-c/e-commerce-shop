@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../app/store";
 
-import { filterCategory } from "../../features/Filter/filterSlice";
+import { filterCategory } from "./filterSlice";
 
 const FilterCategory = () => {
 	const book = useSelector((state: RootState) => state.filter.all_items);
