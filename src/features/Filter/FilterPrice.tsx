@@ -1,7 +1,6 @@
-import React, { useEffect, useState, ChangeEventHandler } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { ChangeEventHandler } from "react";
+import { useDispatch } from "react-redux";
 import { filterPrice } from "./filterSlice";
-import { RootState } from "../../app/store";
 
 const FilterPrice = () => {
 	const dispatch = useDispatch();
@@ -25,7 +24,7 @@ const FilterPrice = () => {
 					type="checkbox"
 					name="price-fifteen"
 					id="price-fifteen"
-					min="0"
+					min="1"
 					max="15"
 					className="cursor-pointer"
 					onChange={(e) => handleFilterPrice(e)}
