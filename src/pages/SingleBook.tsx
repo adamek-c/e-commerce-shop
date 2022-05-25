@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../app/store";
-
+import { addToCart } from "../features/Cart/cartSlice";
 // components
 import { StarsRating } from "../components";
 import Error from "./Error";
@@ -11,10 +11,14 @@ const SingleBook = () => {
 
 	const books = useSelector((state: RootState) => state.filter.items);
 	const product = books.find((book) => book.id === id);
+	const dispatch = useDispatch();
 
 	if (!product?.id) {
 		return <Error />;
 	}
+
+	const { id: Id, author, img, title, price } = product;
+	const Ids = parseInt(Id);
 
 	return (
 		<section>
@@ -55,7 +59,12 @@ const SingleBook = () => {
 						<p className="text-xl tracking-wide py-4 mt-2 lg:text-xl">
 							{product?.description}
 						</p>
-						<button className="bg-[#4761A3] py-4 px-6 text-3xl text-white hover:bg-[#384F88] lg:mt-12">
+						<button
+							className="bg-[#4761A3] py-4 px-6 text-3xl text-white hover:bg-[#384F88] lg:mt-12"
+							onClick={() =>
+								dispatch(addToCart({ Ids, author, img, title, price }))
+							}
+						>
 							Add To Cart
 						</button>
 					</div>
