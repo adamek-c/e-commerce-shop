@@ -11,8 +11,12 @@ const Cart = () => {
 
 	return (
 		<section>
-			<div className="mt-12 max-w-screen-2xl mx-auto px-8 lg:mt-32">
-				<div className="p-8 shadow-md"></div>
+			<div className="m-12 max-w-screen-2xl mx-auto px-8 lg:mt-32">
+				<div className="grid">
+					{products.map((product) => {
+						return <CartItems key={product.Ids} {...product} />;
+					})}
+				</div>
 			</div>
 		</section>
 	);

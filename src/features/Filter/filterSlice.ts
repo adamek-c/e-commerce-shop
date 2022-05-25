@@ -77,7 +77,7 @@ const filterSlice = createSlice({
 				state.checked &&
 				state.bookLanguage &&
 				!state.bookName &&
-				!state.max_price &&
+				state.max_price &&
 				state.min_price
 			) {
 				const booksPrices = state.items.filter((book) => {

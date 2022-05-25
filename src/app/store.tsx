@@ -4,8 +4,8 @@ import filterSlice from "../features/Filter/filterSlice";
 
 export const store = configureStore({
 	reducer: {
-		filter: filterSlice,
 		cart: cartSlice,
+		filter: filterSlice,
 	},
 });
 
