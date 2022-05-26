@@ -11,6 +11,7 @@ const initialState: FilterBooks = {
 	items: books,
 	active: false,
 	checked: false,
+	checkedPrice: false,
 	bookName: "",
 	bookLanguage: "",
 	min_price: 0,
@@ -125,6 +126,7 @@ const filterSlice = createSlice({
 		filterPrice: (state, action: PayloadAction<Price>) => {
 			state.min_price = action.payload.minPrice;
 			state.max_price = action.payload.maxPrice;
+			state.checkedPrice = true;
 			if (action.payload.checked) {
 				const booksPrices = state.items.filter((book) => {
 					if (state.min_price <= book.price && book.price <= state.max_price) {

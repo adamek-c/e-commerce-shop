@@ -28,6 +28,7 @@ export interface FilterBooks {
 	all_items: Book[];
 	active: boolean;
 	checked: boolean;
+	checkedPrice: boolean;
 	bookName: string | undefined;
 	bookLanguage: string | undefined;
 	min_price: number;
