@@ -17,7 +17,7 @@ const SingleBook = () => {
 		return <Error />;
 	}
 
-	const { id: Id, author, img, title, price } = product;
+	const { id: Id, author, img, title, price, cartCount } = product;
 	const Ids = parseInt(Id);
 
 	return (
@@ -62,7 +62,9 @@ const SingleBook = () => {
 						<button
 							className="bg-[#4761A3] py-4 px-6 text-3xl text-white hover:bg-[#384F88] lg:mt-12"
 							onClick={() =>
-								dispatch(addToCart({ Ids, author, img, title, price }))
+								dispatch(
+									addToCart({ Ids, author, img, title, price, cartCount })
+								)
 							}
 						>
 							Add To Cart

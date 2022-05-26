@@ -27,6 +27,7 @@ const filterSlice = createSlice({
 			);
 			state.items = books;
 			state.bookName = action.payload;
+			state.active = true;
 
 			if (state.checked) {
 				const books = state.items.filter(

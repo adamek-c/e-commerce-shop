@@ -9,6 +9,7 @@ export interface Book {
 	img: string;
 	price: number;
 	category?: string;
+	cartCount: number;
 }
 
 export interface Language {

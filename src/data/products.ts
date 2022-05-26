@@ -10,6 +10,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/71pvUZnl56L.jpg",
 		price: 132.18,
 		category: "fantasy",
+		cartCount: 0,
 	},
 	{
 		id: "2",
@@ -22,6 +23,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/91OOVL-IMzL.jpg",
 		price: 75.32,
 		category: "fantasy",
+		cartCount: 0,
 	},
 	{
 		id: "3",
@@ -34,6 +36,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/71Ceju5pDnL.jpg",
 		price: 32.08,
 		category: "fantasy",
+		cartCount: 0,
 	},
 	{
 		id: "4",
@@ -46,6 +49,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/81wJpBAw63S.jpg",
 		price: 128.67,
 		category: "fantasy",
+		cartCount: 0,
 	},
 	{
 		id: "5",
@@ -58,6 +62,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/9140+AXQdhL.jpg",
 		price: 12.04,
 		category: "romans",
+		cartCount: 0,
 	},
 	{
 		id: "6",
@@ -70,6 +75,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/617uZq23IPL.jpg",
 		price: 45.91,
 		category: "romans",
+		cartCount: 0,
 	},
 	{
 		id: "7",
@@ -82,6 +88,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/7120My5-1QL.jpg",
 		price: 45.78,
 		category: "komiksy",
+		cartCount: 0,
 	},
 	{
 		id: "8",
@@ -94,6 +101,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/91ytzRT6piL.jpg",
 		price: 64.29,
 		category: "komiksy",
+		cartCount: 0,
 	},
 	{
 		id: "9",
@@ -106,6 +114,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/81W9SHuNgxL.jpg",
 		price: 68.7,
 		category: "komiksy",
+		cartCount: 0,
 	},
 	{
 		id: "10",
@@ -118,6 +127,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/91o9XdLkjjL.jpg",
 		price: 42.34,
 		category: "kryminał",
+		cartCount: 0,
 	},
 	{
 		id: "11",
@@ -130,6 +140,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/51DqO6AkumL.jpg",
 		price: 82.67,
 		category: "kryminał",
+		cartCount: 0,
 	},
 	{
 		id: "12",
@@ -142,6 +153,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/81YVXgvXoAL.jpg",
 		price: 34.45,
 		category: "kryminał",
+		cartCount: 0,
 	},
 	{
 		id: "13",
@@ -154,6 +166,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/41770QLTSuL.jpg",
 		price: 29.08,
 		category: "styl życia",
+		cartCount: 0,
 	},
 	{
 		id: "15",
@@ -166,6 +179,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/71QinSfS1hL.jpg",
 		price: 58.69,
 		category: "styl życia",
+		cartCount: 0,
 	},
 	{
 		id: "16",
@@ -178,6 +192,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/61-G4SEHarL.jpg",
 		price: 88.46,
 		category: "styl życia",
+		cartCount: 0,
 	},
 	{
 		id: "17",
@@ -190,6 +205,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/71JP9uOTF-S.jpg",
 		price: 75.46,
 		category: "bajki",
+		cartCount: 0,
 	},
 	{
 		id: "18",
@@ -202,6 +218,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/51aXOjJzYDL.jpg",
 		price: 20.55,
 		category: "bajki",
+		cartCount: 0,
 	},
 	{
 		id: "19",
@@ -214,6 +231,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/61FA4VhqkiL.jpg",
 		price: 26.59,
 		category: "bajki",
+		cartCount: 0,
 	},
 	{
 		id: "20",
@@ -226,6 +244,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/719fXxqahzL.jpg",
 		price: 33.79,
 		category: "bajki",
+		cartCount: 0,
 	},
 	{
 		id: "21",
@@ -238,6 +257,7 @@ const books = [
 		img: "https://images-na.ssl-images-amazon.com/images/I/519Ld799ncL.jpg",
 		price: 53.49,
 		category: "bajki",
+		cartCount: 0,
 	},
 ];
 

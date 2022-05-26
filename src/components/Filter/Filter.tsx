@@ -1,10 +1,13 @@
+import { FC } from "react";
 import FilterCategory from "../../features/Filter/FilterCategory";
 import FilterLanguage from "../../features/Filter/FilterLanguage";
 import FilterPrice from "../../features/Filter/FilterPrice";
-
 import { allBooks } from "../../features/Filter/filterSlice";
-import { useDispatch } from "react-redux";
-import { FC } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../app/store";
+
+import { AiOutlineLeft } from "react-icons/ai";
 
 interface Open {
 	open: boolean;
@@ -12,8 +15,8 @@ interface Open {
 }
 
 const Filter: FC<Open> = ({ open, width }) => {
+	const active = useSelector((state: RootState) => state.filter.active);
 	const dispatch = useDispatch();
-
 	const handleGiveBooks = () => {
 		dispatch(allBooks());
 	};
@@ -28,7 +31,13 @@ const Filter: FC<Open> = ({ open, width }) => {
 						</h2>
 						<FilterLanguage />
 						<h2 className="mt-8 text-2xl" onClick={handleGiveBooks}>
-							Książki
+							{active ? (
+								<span className="flex items-center cursor-pointer">
+									<AiOutlineLeft className="text-2xl" /> Ksiażki
+								</span>
+							) : (
+								"Książki"
+							)}
 						</h2>
 						<FilterCategory />
 						<h2 className="mt-8 text-2xl" onClick={handleGiveBooks}>
@@ -49,7 +58,13 @@ const Filter: FC<Open> = ({ open, width }) => {
 				</h2>
 				<FilterLanguage />
 				<h2 className="mt-8 text-2xl" onClick={handleGiveBooks}>
-					Książki
+					{active ? (
+						<span className="flex items-center cursor-pointer">
+							<AiOutlineLeft className="text-2xl" /> Ksiażki
+						</span>
+					) : (
+						"Książki"
+					)}
 				</h2>
 				<FilterCategory />
 				<h2 className="mt-8 text-2xl" onClick={handleGiveBooks}>
