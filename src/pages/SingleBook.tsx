@@ -5,13 +5,21 @@ import { addToCart } from "../features/Cart/cartSlice";
 // components
 import { StarsRating } from "../components";
 import Error from "./Error";
+import { useEffect } from "react";
+import { calculateTotals } from "../features/Cart/cartSlice";
 
 const SingleBook = () => {
 	const { id } = useParams();
 
 	const books = useSelector((state: RootState) => state.filter.items);
+	const products = useSelector((state: RootState) => state.cart.cart);
 	const product = books.find((book) => book.id === id);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(calculateTotals());
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [products]);
 
 	if (!product?.id) {
 		return <Error />;
@@ -56,7 +64,7 @@ const SingleBook = () => {
 						>
 							{product?.price} PLN
 						</span>
-						<p className="text-xl tracking-wide py-4 mt-2 lg:text-xl">
+						<p className="text-xl tracking-wide py-4 mt-2 lg:text-xl lg:mt-4">
 							{product?.description}
 						</p>
 						<button

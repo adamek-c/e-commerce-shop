@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 
 const Header = () => {
+	const amount = useSelector((state: RootState) => state.cart.amount);
+
 	return (
 		<nav className="w-full bg-[#4777A3]">
 			<div className="flex items-center p-8 justify-between max-w-screen-xl mx-auto h-36">
@@ -14,7 +18,14 @@ const Header = () => {
 					to="cart"
 					className="text-4xl text-white cursor-pointer lg:text-5xl"
 				>
-					<MdOutlineShoppingCart />
+					<span className="relative">
+						<MdOutlineShoppingCart />
+						{amount ? (
+							<div className="absolute -top-4 text-2xl right-0 bg-[#4761A3] w-8 h-8 rounded-full text-center">
+								{amount}
+							</div>
+						) : null}
+					</span>
 				</Link>
 			</div>
 		</nav>
