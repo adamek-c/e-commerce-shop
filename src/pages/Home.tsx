@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import { Filter } from "../components";
-import { MdOutlineExpandMore } from "react-icons/md";
-// components
-import { Books } from "../components";
-
 import { useSelector } from "react-redux";
 import { RootState } from "../app/store";
+import { MdOutlineExpandMore } from "react-icons/md";
+import { Books } from "../components";
+import { Filter } from "../components";
 
 const Home = () => {
 	const [open, setOpen] = useState<boolean>(false);

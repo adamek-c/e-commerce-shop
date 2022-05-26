@@ -5,6 +5,7 @@ import { filterCategory } from "./filterSlice";
 const FilterCategory = () => {
 	const book = useSelector((state: RootState) => state.filter.all_items);
 	const bookName = useSelector((state: RootState) => state.filter.bookName);
+
 	const category = book.map((book) => book.category);
 	const booksCategory = new Set(category);
 	const sortedCategory = Array.from(booksCategory).sort();

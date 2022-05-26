@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../app/store";
-
 import { filterLanguage, chcekedValue } from "./filterSlice";
 
 const FilterLanguage = () => {
@@ -8,8 +7,9 @@ const FilterLanguage = () => {
 		(state: RootState) => state.filter.all_items
 	);
 	const dispatch = useDispatch();
-	const category = bookLanguage.map((book) => book.edition);
-	const booksLanguage = new Set(category);
+
+	const categoryLanguage = bookLanguage.map((book) => book.edition);
+	const booksLanguage = new Set(categoryLanguage);
 	const sortedLanguage = Array.from(booksLanguage).sort();
 
 	const handleFilterLanguage = (e: React.ChangeEvent<HTMLInputElement>) => {

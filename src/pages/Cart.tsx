@@ -14,12 +14,16 @@ const Cart = () => {
 	}, [products]);
 
 	if (products.length === 0) {
-		return <h2 className="mt-12 text-center text-2xl">Brak Produktów</h2>;
+		return (
+			<h2 className="mt-12 text-center text-2xl min-h-screen">
+				Brak Produktów
+			</h2>
+		);
 	}
 
 	return (
 		<section>
-			<div className="m-12 max-w-screen-2xl mx-auto px-8 lg:mt-32">
+			<div className="m-12 max-w-screen-2xl mx-auto px-8 lg:mt-32 min-h-screen">
 				<div className="grid">
 					{products.map((product) => {
 						return <CartItems key={product.Ids} {...product} />;

@@ -21,3 +21,12 @@ export interface CartItems {
 	amount: number;
 	total: number;
 }
+
+export interface Products {
+	Ids: number;
+	author: string | undefined;
+	title: string | undefined;
+	img: string | undefined;
+	price: number | undefined;
+	cartCount: number;
+}

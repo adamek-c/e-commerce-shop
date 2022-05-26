@@ -1,16 +1,8 @@
 import { FC } from "react";
-import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { removeItem } from "./cartSlice";
-
-interface Products {
-	Ids: number;
-	author: string | undefined;
-	title: string | undefined;
-	img: string | undefined;
-	price: number | undefined;
-	cartCount: number;
-}
+import { AiOutlineClose } from "react-icons/ai";
+import { Products } from "../../interfaces/CartInterfaces/cart";
 
 const CartItems: FC<Products> = ({
 	Ids,

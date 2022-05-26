@@ -1,12 +1,11 @@
+import { useEffect } from "react";
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../app/store";
-import { addToCart } from "../features/Cart/cartSlice";
-// components
 import { StarsRating } from "../components";
 import Error from "./Error";
-import { useEffect } from "react";
 import { calculateTotals } from "../features/Cart/cartSlice";
+import { addToCart } from "../features/Cart/cartSlice";
 
 const SingleBook = () => {
 	const { id } = useParams();
@@ -30,7 +29,7 @@ const SingleBook = () => {
 
 	return (
 		<section>
-			<div className="mt-12 max-w-screen-2xl mx-auto px-8 lg:mt-32">
+			<div className="mt-12 max-w-screen-2xl mx-auto px-8 lg:mt-32 min-h-screen">
 				<div className="max-w-2xl mx-auto p-8 shadow-md lg:max-w-screen-xl lg:grid lg:grid-cols-2 lg:grid-rows-2 ">
 					<div className="lg:mt-7">
 						<div className="mb-2">
@@ -68,7 +67,7 @@ const SingleBook = () => {
 							{product?.description}
 						</p>
 						<button
-							className="bg-[#4761A3] py-4 px-6 text-3xl text-white hover:bg-[#384F88] lg:mt-12"
+							className="bg-[#4761A3] py-4 px-6 text-3xl text-white hover:bg-[#384F88] lg:mt-12 transition-all"
 							onClick={() =>
 								dispatch(
 									addToCart({ Ids, author, img, title, price, cartCount })
