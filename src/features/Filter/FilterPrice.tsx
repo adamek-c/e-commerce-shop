@@ -1,9 +1,14 @@
 import { ChangeEventHandler } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { filterPrice } from "./filterSlice";
+import inputs from "../../data/inputs";
+import { RootState } from "../../app/store";
 
 const FilterPrice = () => {
 	const dispatch = useDispatch();
+	const min = useSelector((state: RootState) => state.filter.min_price);
+	const max = useSelector((state: RootState) => state.filter.max_price);
+	const checked = useSelector((state: RootState) => state.filter.checkedPrice);
 
 	const handleFilterPrice: ChangeEventHandler<HTMLInputElement> = (e) => {
 		const minPrice = parseInt(e.target.min);
@@ -20,89 +25,32 @@ const FilterPrice = () => {
 	return (
 		<div className="mt-4">
 			<div className="my-2">
-				<input
-					type="checkbox"
-					name="price-fifteen"
-					id="price-fifteen"
-					min="1"
-					max="15"
-					className="cursor-pointer"
-					onChange={(e) => handleFilterPrice(e)}
-				/>
-				<label
-					htmlFor="price-fifteen"
-					className="capitalize text-xl my-2 ml-3 cursor-pointer"
-				>
-					Do 15 zł
-				</label>
-			</div>
-			<div className="my-2">
-				<input
-					type="checkbox"
-					name="price-fifty"
-					id="price-fifty"
-					min="15"
-					max="50"
-					className="cursor-pointer"
-					onChange={(e) => handleFilterPrice(e)}
-				/>
-				<label
-					htmlFor="price-fifty"
-					className="capitalize text-xl my-2 ml-3 cursor-pointer"
-				>
-					15 do 50 zł
-				</label>
-			</div>
-			<div className="my-2">
-				<input
-					type="checkbox"
-					name="price-hundred"
-					id="price-hundred"
-					min="50"
-					max="100"
-					className="cursor-pointer"
-					onChange={(e) => handleFilterPrice(e)}
-				/>
-				<label
-					htmlFor="price-hundred"
-					className="capitalize text-xl my-2 ml-3 cursor-pointer"
-				>
-					50 do 100 zł
-				</label>
-			</div>
-			<div className="my-2">
-				<input
-					type="checkbox"
-					name="price-houndred"
-					id="price-houndred"
-					min="100"
-					max="125"
-					className="cursor-pointer"
-					onChange={(e) => handleFilterPrice(e)}
-				/>
-				<label
-					htmlFor="price-houndred"
-					className="capitalize text-xl my-2 ml-3 cursor-pointer"
-				>
-					100 do 125 zł
-				</label>
-			</div>
-			<div>
-				<input
-					type="checkbox"
-					name="price-twenty-five"
-					id="price-twenty-five"
-					min="100"
-					max="9999"
-					className="cursor-pointer"
-					onChange={(e) => handleFilterPrice(e)}
-				/>
-				<label
-					htmlFor="price-twenty-five"
-					className="capitalize text-xl my-2 ml-3 cursor-pointer"
-				>
-					125 i więcej
-				</label>
+				{inputs.map((input) => {
+					const { id, name, from, to } = input;
+					return (
+						<div key={id}>
+							<input
+								type="checkbox"
+								name={name}
+								id={name}
+								min={from}
+								max={to}
+								className="cursor-pointer"
+								onChange={(e) => handleFilterPrice(e)}
+								checked={min === from && max === to ? checked : false}
+							/>
+							<label
+								htmlFor={name}
+								className="text-xl my-2 ml-3 cursor-pointer"
+							>
+								{from === 1 ? null : `${from}`}
+								{` `}
+								{from === 125 ? null : "Do"} {``}
+								{to === 999 ? "i więcej" : `${to} zł`}
+							</label>
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	);
