@@ -1,18 +1,12 @@
 import { FC } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../app/store";
+import { AiOutlineLeft } from "react-icons/ai";
+import { Open } from "../../interfaces/ComponentsInterfaces/FilterInterfaces";
+import { allBooks } from "../../features/Filter/filterSlice";
 import FilterCategory from "../../features/Filter/FilterCategory";
 import FilterLanguage from "../../features/Filter/FilterLanguage";
 import FilterPrice from "../../features/Filter/FilterPrice";
-import { allBooks } from "../../features/Filter/filterSlice";
-
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../app/store";
-
-import { AiOutlineLeft } from "react-icons/ai";
-
-interface Open {
-	open: boolean;
-	width: number;
-}
 
 const Filter: FC<Open> = ({ open, width }) => {
 	const active = useSelector((state: RootState) => state.filter.active);

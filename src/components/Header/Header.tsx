@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { MdOutlineShoppingCart } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
+import { MdOutlineShoppingCart } from "react-icons/md";
 
 const Header = () => {
 	const amount = useSelector((state: RootState) => state.cart.amount);

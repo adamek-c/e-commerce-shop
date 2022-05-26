@@ -1,11 +1,9 @@
+import { FC } from "react";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
-import { FC } from "react";
 
-interface RatingStars {
-	rated: number | undefined;
-}
+import { RatingStars } from "../../interfaces/ComponentsInterfaces/StarsInterfaces";
 
 const StarsRating: FC<RatingStars> = ({ rated }) => {
 	return (

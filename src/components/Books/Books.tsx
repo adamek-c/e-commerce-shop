@@ -1,14 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { BooksState } from "../../interfaces/ComponentsInterfaces/Book";
 import StarsRating from "../Stars/StarsRating";
-
-interface BooksState {
-	id: string;
-	title: string;
-	rated?: number;
-	img: string;
-	price: number;
-}
 
 const Books: FC<BooksState> = ({ id, title, rated, img, price }) => {
 	return (
