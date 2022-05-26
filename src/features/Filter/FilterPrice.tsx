@@ -1,13 +1,13 @@
 import { ChangeEventHandler } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 import { filterPrice } from "./filterSlice";
 import inputs from "../../data/inputs";
-import { RootState } from "../../app/store";
 
 const FilterPrice = () => {
 	const dispatch = useDispatch();
-	const min = useSelector((state: RootState) => state.filter.min_price);
-	const max = useSelector((state: RootState) => state.filter.max_price);
+	const minPrice = useSelector((state: RootState) => state.filter.min_price);
+	const maxPrice = useSelector((state: RootState) => state.filter.max_price);
 	const checked = useSelector((state: RootState) => state.filter.checkedPrice);
 
 	const handleFilterPrice: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -37,7 +37,7 @@ const FilterPrice = () => {
 								max={to}
 								className="cursor-pointer"
 								onChange={(e) => handleFilterPrice(e)}
-								checked={min === from && max === to ? checked : false}
+								checked={minPrice === from && maxPrice === to ? checked : false}
 							/>
 							<label
 								htmlFor={name}

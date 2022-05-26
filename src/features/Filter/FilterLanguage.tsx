@@ -6,7 +6,7 @@ const FilterLanguage = () => {
 	const bookLanguage = useSelector(
 		(state: RootState) => state.filter.all_items
 	);
-	const checked = useSelector((state: RootState) => state.filter.checked);
+	const checkedValue = useSelector((state: RootState) => state.filter.checked);
 	const bookLang = useSelector((state: RootState) => state.filter.bookLanguage);
 	const dispatch = useDispatch();
 
@@ -37,7 +37,7 @@ const FilterLanguage = () => {
 							id={language}
 							className="cursor-pointer"
 							onChange={(e) => handleFilterLanguage(e)}
-							checked={language === bookLang ? checked : false}
+							checked={language === bookLang ? checkedValue : false}
 						/>
 						<label
 							htmlFor={language}

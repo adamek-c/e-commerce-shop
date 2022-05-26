@@ -48,10 +48,8 @@ const filterSlice = createSlice({
 			}
 		},
 		filterLanguage: (state, action: PayloadAction<Language>) => {
-			let tempFilter = state.all_items;
-
 			if (action.payload.name && action.payload.checked) {
-				const books = tempFilter.filter(
+				const books = state.all_items.filter(
 					(book) => book.edition === action.payload.name
 				);
 				state.checked = true;
@@ -59,7 +57,7 @@ const filterSlice = createSlice({
 				state.items = books;
 			}
 			if (!action.payload.checked) {
-				state.items = tempFilter;
+				state.items = state.all_items;
 				state.checked = false;
 				state.bookLanguage = "";
 			}
@@ -67,6 +65,19 @@ const filterSlice = createSlice({
 				const books = state.items.filter(
 					(book) => book.category === state.bookName
 				);
+				if (books) {
+					const booksPrices = books.filter((book) => {
+						if (
+							state.min_price <= book.price &&
+							book.price <= state.max_price
+						) {
+							return book;
+						}
+						// eslint-disable-next-line array-callback-return
+						return;
+					});
+					state.items = booksPrices;
+				}
 				state.items = books;
 			}
 			if (state.bookName && !state.checked) {
@@ -127,20 +138,32 @@ const filterSlice = createSlice({
 			state.min_price = action.payload.minPrice;
 			state.max_price = action.payload.maxPrice;
 			state.checkedPrice = true;
-			if (action.payload.checked) {
-				const booksPrices = state.items.filter((book) => {
-					if (state.min_price <= book.price && book.price <= state.max_price) {
-						return book;
-					}
-					// eslint-disable-next-line array-callback-return
-					return;
-				});
-				state.items = booksPrices;
+			if (action.payload.checked && state.checkedPrice && state.active) {
+				const bookName = state.all_items.filter(
+					(book) => book.category === state.bookName
+				);
+				const bookLanguage = bookName.filter(
+					(book) => book.edition === state.bookLanguage
+				);
+				if (bookLanguage) {
+					const booksPrices = bookLanguage.filter((book) => {
+						if (
+							state.min_price <= book.price &&
+							book.price <= state.max_price
+						) {
+							return book;
+						}
+						// eslint-disable-next-line array-callback-return
+						return;
+					});
+					state.items = booksPrices;
+				}
 			}
 			if (!action.payload.checked) {
 				state.items = state.all_items;
 				state.min_price = 0;
 				state.max_price = 0;
+				state.checkedPrice = false;
 			}
 			if (
 				state.bookName &&
@@ -178,6 +201,29 @@ const filterSlice = createSlice({
 				state.items = state.items.filter(
 					(book) => book.edition === state.bookLanguage
 				);
+			}
+			if (
+				state.checked &&
+				state.max_price &&
+				state.min_price &&
+				!state.active
+			) {
+				const bookLanguage = state.all_items.filter(
+					(book) => book.edition === state.bookLanguage
+				);
+				if (bookLanguage) {
+					const booksPrices = bookLanguage.filter((book) => {
+						if (
+							state.min_price <= book.price &&
+							book.price <= state.max_price
+						) {
+							return book;
+						}
+						// eslint-disable-next-line array-callback-return
+						return;
+					});
+					state.items = booksPrices;
+				}
 			}
 		},
 
