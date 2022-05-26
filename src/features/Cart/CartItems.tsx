@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-// import { removeItem } from "./cartSlice";
+import { removeItem } from "./cartSlice";
 
 interface Products {
 	Ids: number;
@@ -25,7 +25,7 @@ const CartItems: FC<Products> = ({
 	return (
 		<div className="mt-8 first:mt-0 flex bg-neutral-100 p-8 rounded relative">
 			<div className="absolute right-10 text-4xl cursor-pointer">
-				{/* <AiOutlineClose onClick={() => dispatch(removeItem(Ids))} /> */}
+				<AiOutlineClose onClick={() => dispatch(removeItem(Ids))} />
 			</div>
 			<div className="max-w-xs hidden sm:block">
 				<img src={img} alt={title} className="w-full block" />
