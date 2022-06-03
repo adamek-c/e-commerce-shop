@@ -1,14 +1,14 @@
 import { ChangeEventHandler } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../app/store";
 import { filterPrice } from "./filterSlice";
 import inputs from "../../data/inputs";
+import { minPrices, maxPrices, checkeds } from "./filterSlice";
 
 const FilterPrice = () => {
 	const dispatch = useDispatch();
-	const minPrice = useSelector((state: RootState) => state.filter.min_price);
-	const maxPrice = useSelector((state: RootState) => state.filter.max_price);
-	const checked = useSelector((state: RootState) => state.filter.checkedPrice);
+	const minPrice = useSelector(minPrices);
+	const maxPrice = useSelector(maxPrices);
+	const checked = useSelector(checkeds);
 
 	const handleFilterPrice: ChangeEventHandler<HTMLInputElement> = (e) => {
 		const minPrice = parseInt(e.target.min);

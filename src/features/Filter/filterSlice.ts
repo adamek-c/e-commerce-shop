@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../../app/store";
 import books from "../../data/products";
 import {
 	FilterBooks,
@@ -276,6 +277,16 @@ const filterSlice = createSlice({
 		},
 	},
 });
+
+export const allBooksStorage = (state: RootState) => state.filter.all_items;
+export const bookNames = (state: RootState) => state.filter.bookName;
+export const bookLanguages = (state: RootState) => state.filter.all_items;
+export const checkedValues = (state: RootState) => state.filter.checked;
+export const bookLangs = (state: RootState) => state.filter.bookLanguage;
+
+export const minPrices = (state: RootState) => state.filter.min_price;
+export const maxPrices = (state: RootState) => state.filter.max_price;
+export const checkeds = (state: RootState) => state.filter.checkedPrice;
 
 export const {
 	filterCategory,

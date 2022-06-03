@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../app/store";
 import { filterCategory } from "./filterSlice";
+import { allBooksStorage, bookNames } from "./filterSlice";
 
 const FilterCategory = () => {
-	const book = useSelector((state: RootState) => state.filter.all_items);
-	const bookName = useSelector((state: RootState) => state.filter.bookName);
+	const book = useSelector(allBooksStorage);
+	const bookName = useSelector(bookNames);
 
 	const category = book.map((book) => book.category);
 	const booksCategory = new Set(category);

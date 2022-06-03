@@ -1,13 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../app/store";
 import { filterLanguage, chcekedValue } from "./filterSlice";
+import { bookLanguages, checkedValues, bookLangs } from "./filterSlice";
 
 const FilterLanguage = () => {
-	const bookLanguage = useSelector(
-		(state: RootState) => state.filter.all_items
-	);
-	const checkedValue = useSelector((state: RootState) => state.filter.checked);
-	const bookLang = useSelector((state: RootState) => state.filter.bookLanguage);
+	const bookLanguage = useSelector(bookLanguages);
+	const checkedValue = useSelector(checkedValues);
+	const bookLang = useSelector(bookLangs);
 	const dispatch = useDispatch();
 
 	const categoryLanguage = bookLanguage.map((book) => book.edition);
