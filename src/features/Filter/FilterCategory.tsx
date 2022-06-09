@@ -31,7 +31,9 @@ const FilterCategory = () => {
 								: "text-left capitalize text-xl my-2 ml-3 hover:ml-5 transition-all"
 						}`}
 						name={category}
-						onClick={(e) => handleFilter(e)}
+						onClick={(e) => {
+							handleFilter(e);
+						}}
 					>
 						{category}
 					</button>

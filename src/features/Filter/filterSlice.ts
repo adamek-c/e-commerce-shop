@@ -1,4 +1,6 @@
+/* eslint-disable array-callback-return */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { current } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import books from "../../data/products";
 import {
@@ -30,7 +32,6 @@ const filterSlice = createSlice({
 			state.items = books;
 			state.bookName = action.payload;
 			state.active = true;
-
 			if (state.checked) {
 				const books = state.items.filter(
 					(book) => book.edition === state.bookLanguage
@@ -139,32 +140,24 @@ const filterSlice = createSlice({
 			state.min_price = action.payload.minPrice;
 			state.max_price = action.payload.maxPrice;
 			state.checkedPrice = true;
-			if (action.payload.checked && state.checkedPrice && state.active) {
-				const bookName = state.all_items.filter(
-					(book) => book.category === state.bookName
-				);
-				const bookLanguage = bookName.filter(
-					(book) => book.edition === state.bookLanguage
-				);
-				if (bookLanguage) {
-					const booksPrices = bookLanguage.filter((book) => {
-						if (
-							state.min_price <= book.price &&
-							book.price <= state.max_price
-						) {
-							return book;
-						}
-						// eslint-disable-next-line array-callback-return
-						return;
-					});
-					state.items = booksPrices;
-				}
-			}
 			if (!action.payload.checked) {
 				state.items = state.all_items;
 				state.min_price = 0;
 				state.max_price = 0;
 				state.checkedPrice = false;
+			}
+			if (
+				state.min_price &&
+				state.max_price &&
+				state.checkedPrice &&
+				!state.active
+			) {
+				state.items = state.items.filter((book) => {
+					if (state.min_price <= book.price && book.price <= state.max_price) {
+						return book;
+					}
+					return;
+				});
 			}
 			if (
 				state.bookName &&
@@ -181,7 +174,6 @@ const filterSlice = createSlice({
 				);
 				state.items = booksCategory;
 			}
-
 			if (
 				!action.payload.checked &&
 				state.bookName &&
@@ -192,7 +184,6 @@ const filterSlice = createSlice({
 					(book) => book.category === state.bookName
 				);
 			}
-
 			if (
 				state.bookLanguage &&
 				!state.bookName &&
@@ -225,6 +216,22 @@ const filterSlice = createSlice({
 					});
 					state.items = booksPrices;
 				}
+			}
+			if (
+				state.active &&
+				state.bookName &&
+				state.min_price &&
+				state.max_price
+			) {
+				const bookName = state.items.filter(
+					(book) => book.category === state.bookName
+				);
+				state.items = bookName.filter((book) => {
+					if (state.min_price <= book.price && book.price <= state.max_price) {
+						return book;
+					}
+					return;
+				});
 			}
 		},
 
