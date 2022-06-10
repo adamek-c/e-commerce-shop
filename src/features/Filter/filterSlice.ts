@@ -1,6 +1,5 @@
 /* eslint-disable array-callback-return */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { current } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import books from "../../data/products";
 import {
