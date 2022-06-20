@@ -76,6 +76,11 @@ const filterSlice = createSlice({
 		},
 		filterCategory: (state, action: PayloadAction<string | undefined>) => {
 			state.filter.bookName = action.payload;
+			state.filter.active = true;
+		},
+		allBooks: (state) => {
+			state.filter.bookName = "";
+			state.filter.active = false;
 		},
 	},
 });
@@ -91,7 +96,7 @@ export const maxPrices = (state: RootState) => state.filter.filter.max_price;
 export const checkedPrice = (state: RootState) =>
 	state.filter.filter.checkedPrice;
 
-export const { filterCategory, filterLanguage, filterPrice, filter } =
+export const { allBooks, filterCategory, filterLanguage, filterPrice, filter } =
 	filterSlice.actions;
 
 export default filterSlice.reducer;

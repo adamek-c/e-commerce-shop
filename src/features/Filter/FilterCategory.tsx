@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { filterCategory } from "./filterSlice";
+import { filterCategory, filter } from "./filterSlice";
 import { allBooksStorage, bookNames } from "./filterSlice";
 
 const FilterCategory = () => {
@@ -16,6 +16,7 @@ const FilterCategory = () => {
 		e.preventDefault();
 		const category = e.currentTarget;
 		dispatch(filterCategory(category.name));
+		dispatch(filter());
 	};
 
 	return (
