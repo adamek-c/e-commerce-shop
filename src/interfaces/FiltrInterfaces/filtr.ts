@@ -26,11 +26,13 @@ export interface Price {
 export interface FilterBooks {
 	items: Book[];
 	all_items: Book[];
-	active: boolean;
-	checked: boolean;
-	checkedPrice: boolean;
-	bookName: string | undefined;
-	bookLanguage: string | undefined;
-	min_price: number;
-	max_price: number;
+	filter: {
+		active: boolean;
+		checked: boolean;
+		checkedPrice: boolean;
+		bookName: string | undefined;
+		bookLanguage: string | undefined;
+		min_price: number;
+		max_price: number;
+	};
 }
