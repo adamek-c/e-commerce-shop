@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { filterLanguage, chcekedValue } from "./filterSlice";
+import { filterLanguage, filter } from "./filterSlice";
 import { bookLanguages, checkedValues, bookLangs } from "./filterSlice";
 
 const FilterLanguage = () => {
@@ -18,11 +19,18 @@ const FilterLanguage = () => {
 
 		if (checked) {
 			dispatch(filterLanguage({ name, checked }));
+			dispatch(filter());
 		} else {
-			dispatch(chcekedValue());
-			dispatch(filterLanguage({ checked }));
+			dispatch(filterLanguage({ name, checked }));
 		}
 	};
+
+	useEffect(() => {
+		if (!checkedValue) {
+			dispatch(filter());
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [checkedValue]);
 
 	return (
 		<div className="mt-4">
