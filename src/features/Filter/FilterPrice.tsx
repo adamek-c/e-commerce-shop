@@ -1,14 +1,15 @@
+import { useEffect } from "react";
 import { ChangeEventHandler } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterPrice } from "./filterSlice";
+import { filterPrice, filter } from "./filterSlice";
 import inputs from "../../data/inputs";
-import { minPrices, maxPrices, checkeds } from "./filterSlice";
+import { minPrices, maxPrices, checkedPrice } from "./filterSlice";
 
 const FilterPrice = () => {
 	const dispatch = useDispatch();
 	const minPrice = useSelector(minPrices);
 	const maxPrice = useSelector(maxPrices);
-	const checked = useSelector(checkeds);
+	const checked = useSelector(checkedPrice);
 
 	const handleFilterPrice: ChangeEventHandler<HTMLInputElement> = (e) => {
 		const minPrice = parseInt(e.target.min);
@@ -17,10 +18,18 @@ const FilterPrice = () => {
 
 		if (checked) {
 			dispatch(filterPrice({ minPrice, maxPrice, checked }));
+			dispatch(filter());
 		} else {
 			dispatch(filterPrice({ minPrice, maxPrice, checked }));
 		}
 	};
+
+	useEffect(() => {
+		if (!checked) {
+			dispatch(filter());
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [checked]);
 
 	return (
 		<div className="mt-4">
