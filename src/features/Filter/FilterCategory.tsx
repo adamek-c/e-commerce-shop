@@ -1,14 +1,14 @@
 import { useSelector, useDispatch } from "react-redux";
 import { filterCategory, filter } from "./filterSlice";
 import { allBooksStorage, bookNames } from "./filterSlice";
+import getUniqueValue from "../../helpers/getUniqueValue";
 
 const FilterCategory = () => {
 	const book = useSelector(allBooksStorage);
 	const bookName = useSelector(bookNames);
 
 	const category = book.map((book) => book.category);
-	const booksCategory = new Set(category);
-	const sortedCategory = Array.from(booksCategory).sort();
+	const sortedCategory = getUniqueValue(category, "category");
 
 	const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ const FilterCategory = () => {
 
 	return (
 		<div className="flex flex-col justify mt-4">
-			{sortedCategory.map((category, index) => {
+			{sortedCategory?.map((category, index) => {
 				return (
 					<button
 						key={index}
