@@ -21,7 +21,7 @@ const Home = () => {
 
 	return (
 		<main className="mt-12 relative overflow-hidden">
-			<div className="px-8 lg:flex lg:justify-items-start justify-between max-w-screen-2xl mx-auto">
+			<div className="px-8 lg:flex lg:justify-items-start justify-between max-w-screen-xl mx-auto">
 				<div>
 					<h2
 						className="text-3xl tracking-wider flex items-center cursor-pointer lg:cursor-auto w-max"
