@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { filterLanguage, filter } from "./filterSlice";
 import { bookLanguages, checkedValues, bookLangs } from "./filterSlice";
+import getUniqueValue from "../../helpers/getUniqueValue";
 
 const FilterLanguage = () => {
 	const bookLanguage = useSelector(bookLanguages);
@@ -10,8 +11,7 @@ const FilterLanguage = () => {
 	const dispatch = useDispatch();
 
 	const categoryLanguage = bookLanguage.map((book) => book.edition);
-	const booksLanguage = new Set(categoryLanguage);
-	const sortedLanguage = Array.from(booksLanguage).sort();
+	const sortedLanguage = getUniqueValue(categoryLanguage, "edition");
 
 	const handleFilterLanguage = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const name = e.target.name;
@@ -34,7 +34,7 @@ const FilterLanguage = () => {
 
 	return (
 		<div className="mt-4">
-			{sortedLanguage.map((language, index) => {
+			{sortedLanguage?.map((language, index) => {
 				return (
 					<div key={index} className="my-2">
 						<input
