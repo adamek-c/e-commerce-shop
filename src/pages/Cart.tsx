@@ -25,9 +25,9 @@ const Cart = () => {
 		<section>
 			<div className="m-12 max-w-screen-2xl mx-auto px-8 lg:mt-32 min-h-screen">
 				<div className="grid">
-					{products.map((product) => {
-						return <CartItems key={product.Ids} {...product} />;
-					})}
+					{products.map((product) => (
+						<CartItems key={product.Ids} {...product} />
+					))}
 				</div>
 				<div className="my-8">
 					<h2 className="text-3xl">

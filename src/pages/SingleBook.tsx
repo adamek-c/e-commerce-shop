@@ -4,12 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../app/store";
 import { StarsRating } from "../components";
 import Error from "./Error";
-import { calculateTotals } from "../features/Cart/cartSlice";
-import { addToCart } from "../features/Cart/cartSlice";
+import { calculateTotals, addToCart } from "../features/Cart/cartSlice";
 
 const SingleBook = () => {
 	const { id } = useParams();
-
 	const books = useSelector((state: RootState) => state.filter.items);
 	const products = useSelector((state: RootState) => state.cart.cart);
 	const product = books.find((book) => book.id === id);
@@ -57,20 +55,25 @@ const SingleBook = () => {
 						/>
 					</div>
 					<div>
-						<span
-							className="text-2xl font-bold border border-[#4761A3] 
-					py-2 px-4 text-[#4761A3] lg:text-3xl"
-						>
+						<span className="text-2xl font-bold border border-[#4761A3] py-2 px-4 text-[#4761A3] lg:text-3xl">
 							{product?.price} PLN
 						</span>
 						<p className="text-xl tracking-wide py-4 mt-2 lg:text-xl lg:mt-4">
 							{product?.description}
 						</p>
 						<button
+							type="button"
 							className="bg-[#4761A3] py-4 px-6 text-3xl text-white hover:bg-[#384F88] lg:mt-12 transition-all"
 							onClick={() =>
 								dispatch(
-									addToCart({ Ids, author, img, title, price, cartCount })
+									addToCart({
+										Ids,
+										author,
+										img,
+										title,
+										price,
+										cartCount,
+									}),
 								)
 							}
 						>

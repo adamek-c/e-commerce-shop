@@ -13,13 +13,16 @@ const cartSlice = createSlice({
 	reducers: {
 		addToCart: (state, action: PayloadAction<Items>) => {
 			const itemIndex = state.cart.findIndex(
-				(item) => item.Ids === action.payload.Ids
+				(item) => item.Ids === action.payload.Ids,
 			);
 
 			if (itemIndex >= 0) {
 				state.cart[itemIndex].cartCount += 1;
 			} else {
-				const tempItem = { ...action.payload, cartCount: 1 };
+				const tempItem = {
+					...action.payload,
+					cartCount: 1,
+				};
 				state.cart.push(tempItem);
 			}
 		},

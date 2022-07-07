@@ -1,4 +1,5 @@
-/* eslint-disable array-callback-return */
+/* eslint-disable prettier/prettier */
+/* eslint-disable camelcase */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import books from "../../data/products";
@@ -35,20 +36,20 @@ const filterSlice = createSlice({
 			// category
 			if (bookName) {
 				tempProducts = tempProducts.filter(
-					(book) => book.category === bookName
+					(book) => book.category === bookName,
 				);
 			}
 			// language
 			if (bookLanguage) {
 				tempProducts = tempProducts.filter(
-					(book) => book.edition === bookLanguage
+					(book) => book.edition === bookLanguage,
 				);
 			}
 
 			// price
 			if (max_price && min_price) {
 				tempProducts = tempProducts.filter(
-					(product) => product.price >= min_price && product.price <= max_price
+					(product) => product.price >= min_price && product.price <= max_price,
 				);
 			}
 

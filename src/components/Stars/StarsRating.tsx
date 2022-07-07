@@ -5,26 +5,37 @@ import StarIcon from "@mui/icons-material/Star";
 
 import { RatingStars } from "../../interfaces/ComponentsInterfaces/StarsInterfaces";
 
-const StarsRating: FC<RatingStars> = ({ rated }) => {
-	return (
+const StarsRating: FC<RatingStars> = ({ rated }) => (
+	<Box
+		sx={{
+			width: 200,
+			display: "flex",
+			alignItems: "center",
+			marginTop: "0.3rem",
+		}}
+	>
+		<Rating
+			name="text-feedback"
+			value={rated}
+			readOnly
+			precision={0.5}
+			emptyIcon={
+				<StarIcon
+					style={{
+						opacity: 0.55,
+					}}
+					fontSize="inherit"
+				/>
+			}
+		/>
 		<Box
 			sx={{
-				width: 200,
-				display: "flex",
-				alignItems: "center",
-				marginTop: "0.3rem",
+				ml: 2,
 			}}
 		>
-			<Rating
-				name="text-feedback"
-				value={rated}
-				readOnly
-				precision={0.5}
-				emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-			/>
-			<Box sx={{ ml: 2 }}>{rated}</Box>
+			{rated}
 		</Box>
-	);
-};
+	</Box>
+);
 
 export default StarsRating;

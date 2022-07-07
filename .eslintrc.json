@@ -30,7 +30,7 @@
 				"avoidEscape": true
 			}
 		],
-		"indent": "error",
+		"import/no-cycle": [0],
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
 		"linebreak-style": 0,
@@ -40,7 +40,7 @@
 		"no-param-reassign": ["error", { "props": false }],
 		"comma-dangle": ["error", "only-multiline"],
 		"no-trailing-spaces": ["error", { "skipBlankLines": true }],
-		// "indent": ["error", "tab"],
+		"indent": ["error", "tab"],
 		"react/jsx-one-expression-per-line": [0, { "allow": "none" }],
 		"arrow-body-style": [
 			"error",
@@ -49,7 +49,7 @@
 		],
 		"no-tabs": ["error", { "allowIndentationTabs": true }],
 		"import/no-unresolved": [0, { "caseSensitive": false }],
-		"react/jsx-indent-props": [2, 2],
+		// "react/jsx-indent-props": [2, 2],
 		"react/jsx-props-no-spreading": [
 			1,
 			{
@@ -88,10 +88,13 @@
 			{
 				"ObjectExpression": "always",
 				"ObjectPattern": { "multiline": true },
-				"ImportDeclaration": "never",
-				"ExportDeclaration": { "multiline": true, "minProperties": 3 }
+				"ImportDeclaration": { "multiline": true },
+				"ExportDeclaration": { "multiline": true }
 			}
 		],
-		"prettier/prettier": ["error", { "singleQuote": false, "parser": "flow" }]
+		"prettier/prettier": [
+			"error",
+			{ "singleQuote": false, "parser": "flow", "endOfLine": "auto" }
+		]
 	}
 }

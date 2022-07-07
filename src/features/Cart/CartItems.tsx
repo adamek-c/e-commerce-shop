@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useDispatch } from "react-redux";
-import { removeItem } from "./cartSlice";
 import { AiOutlineClose } from "react-icons/ai";
+import { removeItem } from "./cartSlice";
 import { Products } from "../../interfaces/CartInterfaces/cart";
 
 const CartItems: FC<Products> = ({

@@ -1,7 +1,13 @@
+/* eslint-disable prefer-destructuring */
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { filterLanguage, filter } from "./filterSlice";
-import { bookLanguages, checkedValues, bookLangs } from "./filterSlice";
+import {
+	filterLanguage,
+	filter,
+	bookLanguages,
+	checkedValues,
+	bookLangs,
+} from "./filterSlice";
 import getUniqueValue from "../../helpers/getUniqueValue";
 
 const FilterLanguage = () => {
@@ -13,15 +19,26 @@ const FilterLanguage = () => {
 	const categoryLanguage = bookLanguage.map((book) => book.edition);
 	const sortedLanguage = getUniqueValue(categoryLanguage, "edition");
 
+	// eslint-disable-next-line no-undef
 	const handleFilterLanguage = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const name = e.target.name;
 		const checked = e.target.checked;
 
 		if (checked) {
-			dispatch(filterLanguage({ name, checked }));
+			dispatch(
+				filterLanguage({
+					name,
+					checked,
+				}),
+			);
 			dispatch(filter());
 		} else {
-			dispatch(filterLanguage({ name, checked }));
+			dispatch(
+				filterLanguage({
+					name,
+					checked,
+				}),
+			);
 		}
 	};
 
@@ -34,26 +51,25 @@ const FilterLanguage = () => {
 
 	return (
 		<div className="mt-4">
-			{sortedLanguage?.map((language, index) => {
-				return (
-					<div key={index} className="my-2">
-						<input
-							type="checkbox"
-							name={language}
-							id={language}
-							className="cursor-pointer"
-							onChange={(e) => handleFilterLanguage(e)}
-							checked={language === bookLang ? checkedValue : false}
-						/>
-						<label
-							htmlFor={language}
-							className="capitalize text-xl my-2 ml-3 cursor-pointer"
-						>
-							{language}
-						</label>
-					</div>
-				);
-			})}
+			{sortedLanguage?.map((language, index) => (
+				// eslint-disable-next-line react/no-array-index-key
+				<div key={index} className="my-2">
+					<input
+						type="checkbox"
+						name={language}
+						id={language}
+						className="cursor-pointer"
+						onChange={(e) => handleFilterLanguage(e)}
+						checked={language === bookLang ? checkedValue : false}
+					/>
+					<label
+						htmlFor={language}
+						className="capitalize text-xl my-2 ml-3 cursor-pointer"
+					>
+						{language}
+					</label>
+				</div>
+			))}
 		</div>
 	);
 };

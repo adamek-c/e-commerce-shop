@@ -1,15 +1,20 @@
-import { useEffect } from "react";
-import { ChangeEventHandler } from "react";
+/* eslint-disable prefer-destructuring */
+import { useEffect, ChangeEventHandler } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterPrice, filter } from "./filterSlice";
+import {
+	filterPrice,
+	filter,
+	minPrices,
+	maxPrices,
+	checkedPrice,
+} from "./filterSlice";
 import inputs from "../../data/inputs";
-import { minPrices, maxPrices, checkedPrice } from "./filterSlice";
 
 const FilterPrice = () => {
 	const dispatch = useDispatch();
-	const minPrice = useSelector(minPrices);
-	const maxPrice = useSelector(maxPrices);
-	const checked = useSelector(checkedPrice);
+	const minPriceValue = useSelector(minPrices);
+	const maxPriceValue = useSelector(maxPrices);
+	const isChecked = useSelector(checkedPrice);
 
 	const handleFilterPrice: ChangeEventHandler<HTMLInputElement> = (e) => {
 		const minPrice = parseInt(e.target.min);
@@ -17,19 +22,31 @@ const FilterPrice = () => {
 		const checked = e.target.checked;
 
 		if (checked) {
-			dispatch(filterPrice({ minPrice, maxPrice, checked }));
+			dispatch(
+				filterPrice({
+					minPrice,
+					maxPrice,
+					checked,
+				}),
+			);
 			dispatch(filter());
 		} else {
-			dispatch(filterPrice({ minPrice, maxPrice, checked }));
+			dispatch(
+				filterPrice({
+					minPrice,
+					maxPrice,
+					checked,
+				}),
+			);
 		}
 	};
 
 	useEffect(() => {
-		if (!checked) {
+		if (!isChecked) {
 			dispatch(filter());
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [checked]);
+	}, [isChecked]);
 
 	return (
 		<div className="mt-4">
@@ -46,15 +63,17 @@ const FilterPrice = () => {
 								max={to}
 								className="cursor-pointer"
 								onChange={(e) => handleFilterPrice(e)}
-								checked={minPrice === from && maxPrice === to ? checked : false}
+								checked={
+									minPriceValue === from && maxPriceValue === to
+										? isChecked
+										: false
+								}
 							/>
 							<label
 								htmlFor={name}
 								className="text-xl my-2 ml-3 cursor-pointer"
 							>
-								{from === 1 ? null : `${from}`}
-								{` `}
-								{from === 125 ? null : "Do"} {``}
+								{from === 1 ? null : `${from}`} {from === 125 ? null : "Do"}
 								{to === 999 ? "i więcej" : `${to} zł`}
 							</label>
 						</div>
