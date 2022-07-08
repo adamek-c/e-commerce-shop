@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../app/store";
+import { EmptyCard } from "../components";
 import CartItems from "../features/Cart/CartItems";
 import { calculateTotals } from "../features/Cart/cartSlice";
 
@@ -13,13 +14,7 @@ const Cart = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [products]);
 
-	if (products.length === 0) {
-		return (
-			<h2 className="mt-12 text-center text-2xl min-h-screen">
-				Brak Produktów
-			</h2>
-		);
-	}
+	if (products.length === 0) return <EmptyCard />;
 
 	return (
 		<section>
