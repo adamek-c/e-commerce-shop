@@ -1,32 +1,28 @@
+/* eslint-disable prettier/prettier */
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { MdOutlineShoppingCart } from "react-icons/md";
 import { RootState } from "../../app/store";
+import logo from "../../assets/logo.png";
+import IconHeader from "../IconHeader/IconHeader";
 
 const Header = () => {
-	const amount = useSelector((state: RootState) => state.cart.amount);
+	const { amount } = useSelector((state: RootState) => state.cart);
 
 	return (
-		<nav className="w-full bg-[#4777A3]">
-			<div className="flex items-center p-8 justify-between max-w-screen-xl mx-auto h-36">
-				<Link to="/">
-					<h1 className="text-4xl tracking-widest font-bold text-white cursor-pointer lg:text-5xl">
-						BooKs.
-					</h1>
+		<nav className="w-full">
+			<div className="flex items-center p-8 justify-between max-w-screen-xl mx-auto">
+				<Link to="/" className="w-48 lg:w-full">
+					<img src={logo} alt="Read it logo" />
 				</Link>
-				<Link
-					to="cart"
-					className="text-4xl text-white cursor-pointer lg:text-5xl"
-				>
-					<span className="relative">
-						<MdOutlineShoppingCart />
-						{amount ? (
-							<div className="absolute -top-4 text-2xl right-0 bg-[#4761A3] w-8 h-8 rounded-full text-center">
-								{amount}
-							</div>
-						) : null}
-					</span>
-				</Link>
+				<div className="flex space-x-10">
+					<IconHeader icon="person" title="konto" to="" />
+					<IconHeader
+						amount={amount}
+						icon="shopping_cart"
+						title="koszyk"
+						to="cart"
+					/>
+				</div>
 			</div>
 		</nav>
 	);

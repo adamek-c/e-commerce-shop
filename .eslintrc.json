@@ -49,7 +49,6 @@
 		],
 		"no-tabs": ["error", { "allowIndentationTabs": true }],
 		"import/no-unresolved": [0, { "caseSensitive": false }],
-		// "react/jsx-indent-props": [2, 2],
 		"react/jsx-props-no-spreading": [
 			1,
 			{
@@ -95,6 +94,16 @@
 		"prettier/prettier": [
 			"error",
 			{ "singleQuote": false, "parser": "flow", "endOfLine": "auto" }
+		],
+		"react/require-default-props": [
+			1,
+			{
+				"forbidDefaultForRequired": false,
+				"classes": "ignore",
+				"functions": "ignore",
+				// @deprecated Use `functions` option instead.
+				"ignoreFunctionalComponents": false
+			}
 		]
 	}
 }
