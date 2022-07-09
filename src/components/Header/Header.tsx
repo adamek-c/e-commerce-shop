@@ -10,7 +10,7 @@ const Header = () => {
 
 	return (
 		<nav className="w-full border-b bg-inherit">
-			<div className="flex items-center p-8 justify-between max-w-screen-xl mx-auto gap-8">
+			<div className="flex items-center px-8 py-16 justify-between max-w-screen-xl mx-auto gap-8">
 				<Link to="/" className="w-48 lg:w-auto">
 					<img src={logo} alt="Read it logo" />
 				</Link>
