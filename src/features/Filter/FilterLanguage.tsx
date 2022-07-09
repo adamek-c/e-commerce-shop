@@ -50,10 +50,10 @@ const FilterLanguage = () => {
 	}, [checkedValue]);
 
 	return (
-		<div className="mt-4">
+		<div className="mt-8">
 			{sortedLanguage?.map((language, index) => (
 				// eslint-disable-next-line react/no-array-index-key
-				<div key={index} className="my-2">
+				<div key={index} className="my-5">
 					<input
 						type="checkbox"
 						name={language}
@@ -64,7 +64,7 @@ const FilterLanguage = () => {
 					/>
 					<label
 						htmlFor={language}
-						className="capitalize text-xl my-2 ml-3 cursor-pointer"
+						className="capitalize text-2xl ml-3 cursor-pointer"
 					>
 						{language}
 					</label>

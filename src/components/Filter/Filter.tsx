@@ -7,10 +7,12 @@ import { allBooks, filter } from "../../features/Filter/filterSlice";
 import FilterCategory from "../../features/Filter/FilterCategory";
 import FilterLanguage from "../../features/Filter/FilterLanguage";
 import FilterPrice from "../../features/Filter/FilterPrice";
+import FilterSmall from "./FilterSmall";
 
 const Filter: FC<Open> = ({ open, width }) => {
-	const active = useSelector((state: RootState) => state.filter.filter.active);
+	const { active } = useSelector((state: RootState) => state.filter.filter);
 	const dispatch = useDispatch();
+
 	const handleGiveBooks = () => {
 		dispatch(allBooks());
 		dispatch(filter());
@@ -18,42 +20,23 @@ const Filter: FC<Open> = ({ open, width }) => {
 
 	if (width < 1024) {
 		return (
-			<section>
-				{open && (
-					<div className="absolute bg-white w-full z-10 pb-6">
-						<h2 className="mt-8 text-2xl">Język</h2>
-						<FilterLanguage />
-						<h2
-							className="mt-8 text-2xl"
-							onClick={handleGiveBooks}
-							aria-hidden="true"
-						>
-							{active ? (
-								<span className="flex items-center cursor-pointer">
-									<AiOutlineLeft className="text-2xl" /> Ksiażki
-								</span>
-							) : (
-								"Książki"
-							)}
-						</h2>
-						<FilterCategory />
-						<h2 className="mt-8 text-2xl">Cena</h2>
-						<FilterPrice />
-					</div>
-				)}
-			</section>
+			<FilterSmall
+				open={open}
+				active={active}
+				handleGiveBooks={handleGiveBooks}
+			/>
 		);
 	}
 
 	return (
 		<section>
-			<div>
+			<div className="w-96">
 				<h2
-					className="mt-8 text-2xl"
+					className="mt-8 text-3xl"
 					onClick={handleGiveBooks}
 					aria-hidden="true"
 				>
-					Język
+					Language
 				</h2>
 				<FilterLanguage />
 				<h2
@@ -62,20 +45,21 @@ const Filter: FC<Open> = ({ open, width }) => {
 					aria-hidden="true"
 				>
 					{active ? (
-						<span className="flex items-center cursor-pointer">
-							<AiOutlineLeft className="text-2xl" /> Ksiażki
+						<span className="flex items-center cursor-pointer text-3xl">
+							<AiOutlineLeft className="text-2xl" />
+							<span>Books</span>
 						</span>
 					) : (
-						"Książki"
+						<p className="text-3xl">Books</p>
 					)}
 				</h2>
 				<FilterCategory />
 				<h2
-					className="mt-8 text-2xl"
+					className="mt-8 text-3xl"
 					onClick={handleGiveBooks}
 					aria-hidden="true"
 				>
-					Cena
+					Price
 				</h2>
 				<FilterPrice />
 			</div>
