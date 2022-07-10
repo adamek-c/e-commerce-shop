@@ -1,21 +1,30 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { BooksState } from "../../interfaces/ComponentsInterfaces/Book";
-import StarsRating from "../Stars/StarsRating";
 
-const Books: FC<BooksState> = ({ id, title, rated, img, price }) => (
-	<Link
-		to={`product/${id}`}
-		className="bg-neutral-100 flex flex-col cursor-pointer rounded-xl max-w-sm"
-	>
-		<img src={img} alt={title} className="p-8 mx-auto w-full block" />
-
-		<div className="p-8 pt-0 text-xl capitalize bg-neutral-200 rounded-b-xl mt-auto">
-			<h2 className="pt-8 mb-3">{title}</h2>
-			<span className="font-bold">{price} PLN</span>
-			<StarsRating rated={rated} />
-		</div>
-	</Link>
+const Books: FC<BooksState> = ({ id, title, img, price }) => (
+	<article>
+		<figure>
+			<Link
+				to={`product/${id}`}
+				className="cursor-pointer rounded-xl mx-auto group"
+			>
+				<div className="h-[50rem]  md:h-[50rem] overflow-hidden">
+					<img
+						src={img}
+						alt={title}
+						className="w-full h-full object-fit block group-hover:scale-105 transition"
+					/>
+				</div>
+			</Link>
+		</figure>
+		<figcaption>
+			<div className=" text-xl capitalize  rounded-b-xl mt-auto font-medium">
+				<h2 className="pt-8 mb-1">{title}</h2>
+				<span>{price} PLN</span>
+			</div>
+		</figcaption>
+	</article>
 );
 
 export default Books;

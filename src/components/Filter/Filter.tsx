@@ -32,7 +32,7 @@ const Filter: FC<Open> = ({ open, width }) => {
 		<section>
 			<div className="w-96">
 				<h2
-					className="mt-8 text-3xl"
+					className="mt-8 text-2xl"
 					onClick={handleGiveBooks}
 					aria-hidden="true"
 				>
@@ -45,17 +45,17 @@ const Filter: FC<Open> = ({ open, width }) => {
 					aria-hidden="true"
 				>
 					{active ? (
-						<span className="flex items-center cursor-pointer text-3xl">
+						<span className="flex items-center cursor-pointer text-2xl">
 							<AiOutlineLeft className="text-2xl" />
 							<span>Books</span>
 						</span>
 					) : (
-						<p className="text-3xl">Books</p>
+						<p className="text-2xl">Books</p>
 					)}
 				</h2>
 				<FilterCategory />
 				<h2
-					className="mt-8 text-3xl"
+					className="mt-8 text-2xl"
 					onClick={handleGiveBooks}
 					aria-hidden="true"
 				>
@@ -68,5 +68,3 @@ const Filter: FC<Open> = ({ open, width }) => {
 };
 
 export default Filter;
-
-// className={`absolute -top-full transition-all`}

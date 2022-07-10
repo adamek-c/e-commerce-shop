@@ -34,8 +34,8 @@ const FilterCategory = () => {
 					type="button"
 					className={`${
 						bookName === item
-							? "text-left capitalize text-2xl mt-5 ml-5 transition-all font-bold border-r-4 border-[#6AD991]"
-							: "text-left capitalize text-2xl mt-5 ml-3 hover:ml-5 transition-all"
+							? "text-left capitalize text-xl mt-5 ml-5 transition-all font-bold"
+							: "text-left capitalize text-xl mt-5 ml-3 hover:ml-5 transition-all font-medium"
 					}`}
 					name={item}
 					onClick={(e) => {

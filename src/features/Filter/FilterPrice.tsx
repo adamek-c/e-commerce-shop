@@ -68,7 +68,7 @@ const FilterPrice = () => {
 									: false
 							}
 						/>
-						<label htmlFor={name} className="text-2xl my-2 ml-3 cursor-pointer">
+						<label htmlFor={name} className="text-xl my-2 ml-3 cursor-pointer">
 							{from === 1 ? null : `${from}`} {from === 125 ? null : "Do "}
 							{to === 999 ? "i więcej" : `${to} zł`}
 						</label>

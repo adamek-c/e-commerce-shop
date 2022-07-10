@@ -64,7 +64,7 @@ const FilterLanguage = () => {
 					/>
 					<label
 						htmlFor={language}
-						className="capitalize text-2xl ml-3 cursor-pointer"
+						className="capitalize text-xl ml-3 cursor-pointer"
 					>
 						{language}
 					</label>

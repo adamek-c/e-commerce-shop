@@ -11,16 +11,16 @@ const EmptyCard = () => (
 			/>
 		</div>
 		<div className="mt-28 lg:mt-52 text-center lg:text-left pr-4">
-			<h2 className="text-4xl sm:text-5xl lg:text-7xl font-arima font-bold">
+			<h2 className="text-4xl sm:text-5xl lg:text-7xl font-semibold">
 				There are no products in the basket
 			</h2>
-			<p className="mt-8 text-3xl lg:text-4xl font-crismon">
+			<p className="mt-8 text-3xl lg:text-4xl">
 				To return to the home page, please click the link below
 			</p>
 			<button type="button" className="mt-16 group">
 				<Link
 					to="/"
-					className="text-4xl lg:text-4xl font-crismon border py-5 px-16  bg-[#6AD991] text-white transition flex items-center group-hover:drop-shadow-lg"
+					className="text-4xl lg:text-4xl border py-5 px-16  bg-[#6AD991] text-white transition flex items-center group-hover:drop-shadow-lg"
 				>
 					Home
 					<span className="material-symbols-outlined ml-3">arrow_forward</span>

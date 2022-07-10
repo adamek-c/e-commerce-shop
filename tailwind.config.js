@@ -11,8 +11,10 @@ module.exports = {
 				"light-grey": "#F2F2F2",
 			},
 			fontFamily: {
-				arima: "'Arima', cursive",
-				crismon: "'Crimson Text', serif",
+				mono: "'Montserrat', sans-serif",
+			},
+			gridTemplateColumns: {
+				four: "1fr 4fr",
 			},
 		},
 	},
