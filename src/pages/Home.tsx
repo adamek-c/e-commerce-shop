@@ -34,6 +34,7 @@ const Home = () => {
 					</h2>
 					<Filter open={open} width={width} />
 				</div>
+
 				<div className="grid gap-24 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 my-12 w-full ">
 					{books.map((book) => (
 						<Books key={book.id} {...book} />
