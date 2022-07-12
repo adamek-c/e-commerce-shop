@@ -57,8 +57,10 @@ const SingleBook = () => {
 							className="w-full block"
 						/>
 					</div>
-					<div>
-						<h3 className="text-2xl lg:text-3xl">{product?.price} PLN</h3>
+					<div className="mt-10">
+						<h3 className="text-2xl lg:text-3xl">
+							{product?.price.toFixed(2)} PLN
+						</h3>
 						<button
 							type="button"
 							className="bg-[#6AD991] py-4 px-6 text-3xl text-white hover:drop-shadow-lg mt-10 transition-all flex space-x-2 capitalize"

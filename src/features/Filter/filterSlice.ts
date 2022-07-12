@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-tabs */
 /* eslint-disable camelcase */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-import books from "../../data/products";
+import useFetchData from "../../hooks/useFetchData";
 import {
 	FilterBooks,
 	Language,
@@ -10,8 +12,8 @@ import {
 } from "../../interfaces/FiltrInterfaces/filtr";
 
 const initialState: FilterBooks = {
-	all_items: books,
-	items: books,
+	all_items: [],
+	items: [],
 	filter: {
 		active: false,
 		bookName: "",
@@ -21,7 +23,10 @@ const initialState: FilterBooks = {
 		min_price: 0,
 		max_price: 0,
 	},
+	pending: "loading",
 };
+
+export const getBooks = useFetchData();
 
 const filterSlice = createSlice({
 	name: "filter",
@@ -58,6 +63,7 @@ const filterSlice = createSlice({
 
 		filterLanguage: (state, action: PayloadAction<Language>) => {
 			state.filter.bookLanguage = action.payload.name;
+			// eslint-disable-next-line prettier/prettier
 			state.filter.checked = action.payload.checked as boolean;
 
 			if (!action.payload.checked) {
@@ -83,6 +89,18 @@ const filterSlice = createSlice({
 			state.filter.bookName = "";
 			state.filter.active = false;
 		},
+	},
+	extraReducers: (builder) => {
+		builder.addCase(getBooks.pending, (state) => {
+			state.pending = "loading";
+		});
+		builder.addCase(getBooks.fulfilled, (state, action) => {
+			state.all_items = action.payload;
+			state.items = action.payload;
+		});
+		builder.addCase(getBooks.rejected, (state) => {
+			state.pending = "idle";
+		});
 	},
 });
 

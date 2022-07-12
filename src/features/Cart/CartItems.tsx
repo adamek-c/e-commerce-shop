@@ -25,7 +25,7 @@ const CartItems: FC<Products> = ({
 			<div className="sm:ml-8">
 				<h2 className="text-4xl capitalize">{title}</h2>
 				<h2 className="text-xl mt-2">{author} (Autor)</h2>
-				<h4 className="mt-4 text-2xl font-bold">{price} PLN</h4>
+				<h4 className="mt-4 text-2xl font-bold">{price?.toFixed(2)} PLN</h4>
 				<h4 className="text-2xl mt-2">Ilość {cartCount} sztuka</h4>
 			</div>
 		</div>

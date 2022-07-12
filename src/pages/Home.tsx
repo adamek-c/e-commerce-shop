@@ -1,12 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineExpandMore } from "react-icons/md";
-import { RootState } from "../app/store";
+import { AppDispatch, RootState } from "../app/store";
 import { Books, Filter } from "../components";
+import { getBooks } from "../features/Filter/filterSlice";
 
 const Home = () => {
 	const [open, setOpen] = useState<boolean>(false);
 	const [width, setWidth] = useState<number>(window.innerWidth);
+
+	const dispatch = useDispatch<AppDispatch>();
+
+	useEffect(() => {
+		dispatch(getBooks());
+	}, []);
 
 	const books = useSelector((state: RootState) => state.filter.items);
 

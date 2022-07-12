@@ -22,7 +22,7 @@ const Books: FC<BooksState> = ({ id, title, img, price }) => (
 		<figcaption>
 			<div className=" text-xl capitalize  rounded-b-xl mt-auto font-medium">
 				<h2 className="pt-8 mb-1">{title}</h2>
-				<span>{price} PLN</span>
+				<span>{price.toFixed(2)} PLN</span>
 			</div>
 		</figcaption>
 	</article>
