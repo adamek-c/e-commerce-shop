@@ -7,5 +7,15 @@ import StarsRating from "./Stars/StarsRating";
 import Footer from "./Footer/Footer";
 import EmptyCard from "./EmptyCard/EmptyCard";
 import Loading from "./Loading/Loading";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
-export { Header, Filter, Books, StarsRating, Footer, EmptyCard, Loading };
+export {
+	Header,
+	Filter,
+	Books,
+	StarsRating,
+	Footer,
+	EmptyCard,
+	Loading,
+	ErrorBoundary,
+};

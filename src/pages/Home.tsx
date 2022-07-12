@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineExpandMore } from "react-icons/md";
 import { AppDispatch, RootState } from "../app/store";
-import { Books, Filter, Loading } from "../components";
+import { Books, ErrorBoundary, Filter, Loading } from "../components";
 import { getBooks } from "../features/Filter/filterSlice";
 
 const Home = () => {
@@ -32,29 +32,31 @@ const Home = () => {
 	}
 
 	return (
-		<main className="pt-20 relative overflow-hidden">
-			<div className="px-8 grid lg:grid-cols-four max-w-screen-2xl mx-auto min-h-screen gap-8">
-				<div>
-					<h2
-						className="text-3xl tracking-wider flex items-center cursor-pointer lg:cursor-auto w-max mt-12"
-						onClick={() => setOpen(!open)}
-						aria-hidden="true"
-					>
-						Category
-						<span className="ml-2 lg:hidden">
-							<MdOutlineExpandMore />
-						</span>
-					</h2>
-					<Filter open={open} width={width} />
-				</div>
+		<ErrorBoundary>
+			<main className="pt-20 relative overflow-hidden">
+				<div className="px-8 grid lg:grid-cols-four max-w-screen-2xl mx-auto min-h-screen gap-8">
+					<div>
+						<h2
+							className="text-3xl tracking-wider flex items-center cursor-pointer lg:cursor-auto w-max mt-12"
+							onClick={() => setOpen(!open)}
+							aria-hidden="true"
+						>
+							Category
+							<span className="ml-2 lg:hidden">
+								<MdOutlineExpandMore />
+							</span>
+						</h2>
+						<Filter open={open} width={width} />
+					</div>
 
-				<div className="grid gap-24 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 my-12 w-full ">
-					{books.map((book) => (
-						<Books key={book.id} {...book} />
-					))}
+					<div className="grid gap-24 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 my-12 w-full ">
+						{books.map((book) => (
+							<Books key={book.id} {...book} />
+						))}
+					</div>
 				</div>
-			</div>
-		</main>
+			</main>
+		</ErrorBoundary>
 	);
 };
 
