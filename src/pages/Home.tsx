@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineExpandMore } from "react-icons/md";
 import { AppDispatch, RootState } from "../app/store";
-import { Books, Filter } from "../components";
+import { Books, Filter, Loading } from "../components";
 import { getBooks } from "../features/Filter/filterSlice";
 
 const Home = () => {
@@ -17,6 +17,7 @@ const Home = () => {
 	}, []);
 
 	const books = useSelector((state: RootState) => state.filter.items);
+	const { pending } = useSelector((state: RootState) => state.filter);
 
 	useEffect(() => {
 		const handleResize = () => setWidth(window.innerWidth);
@@ -25,6 +26,10 @@ const Home = () => {
 			window.removeEventListener("resize", handleResize);
 		};
 	});
+
+	if (pending === "loading") {
+		return <Loading />;
+	}
 
 	return (
 		<main className="pt-20 relative overflow-hidden">

@@ -95,6 +95,7 @@ const filterSlice = createSlice({
 			state.pending = "loading";
 		});
 		builder.addCase(getBooks.fulfilled, (state, action) => {
+			state.pending = "success";
 			state.all_items = action.payload;
 			state.items = action.payload;
 		});
