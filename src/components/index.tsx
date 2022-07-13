@@ -8,6 +8,7 @@ import Footer from "./Footer/Footer";
 import EmptyCard from "./EmptyCard/EmptyCard";
 import Loading from "./Loading/Loading";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
+import ErrorMessage from "./ErrorMessage/ErrorMessage";
 
 export {
 	Header,
@@ -18,4 +19,5 @@ export {
 	EmptyCard,
 	Loading,
 	ErrorBoundary,
+	ErrorMessage,
 };

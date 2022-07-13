@@ -5,7 +5,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineExpandMore } from "react-icons/md";
 import { AppDispatch, RootState } from "../app/store";
-import { Books, ErrorBoundary, Filter, Loading } from "../components";
+import {
+	Books,
+	ErrorBoundary,
+	ErrorMessage,
+	Filter,
+	Loading,
+} from "../components";
 import { getBooks } from "../features/Filter/filterSlice";
 
 const Home = () => {
@@ -69,11 +75,7 @@ const Home = () => {
 	}
 
 	if (pending === "failed") {
-		content = (
-			<section className="max-w-screen-2xl mx-auto min-h-screen pt-20 flex justify-center">
-				<h2 className="text-5xl text-[#F25050] font-bold">{error}</h2>
-			</section>
-		);
+		content = <ErrorMessage error={error} />;
 	}
 
 	return <section>{content}</section>;
