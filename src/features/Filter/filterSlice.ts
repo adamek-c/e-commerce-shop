@@ -102,7 +102,7 @@ const filterSlice = createSlice({
 		});
 		builder.addCase(getBooks.rejected, (state, action) => {
 			state.pending = "failed";
-			state.error = action.error.message;
+			state.error = action.payload;
 		});
 	},
 });
