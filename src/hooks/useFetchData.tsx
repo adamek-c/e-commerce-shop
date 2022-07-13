@@ -13,12 +13,11 @@ const useFetchData = () => {
 	const getBooks = createAsyncThunk<Book[]>("filter/getBooks", async () => {
 		try {
 			const data = await axios.get(URL);
-			if (data.status !== 200) {
-				throw new Error("Something went wrong!");
-			}
 			return data.data;
-		} catch (error: any) {
-			console.log(error);
+		} catch (error) {
+			if (error === 404) {
+				return error;
+			}
 		}
 	});
 	return getBooks;

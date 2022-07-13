@@ -6,10 +6,7 @@ import { BooksState } from "../../interfaces/ComponentsInterfaces/Book";
 const Books: FC<BooksState> = ({ id, title, img, price }) => (
 	<article>
 		<figure>
-			<Link
-				to={`product/${id}`}
-				className="cursor-pointer rounded-xl mx-auto group"
-			>
+			<Link to={`product/${id}`} className="cursor-pointer group">
 				<div className="h-[50rem]  md:h-[50rem] overflow-hidden">
 					<img
 						src={img}

@@ -36,4 +36,5 @@ export interface FilterBooks {
 		max_price: number;
 	};
 	pending: string;
+	error: any;
 }

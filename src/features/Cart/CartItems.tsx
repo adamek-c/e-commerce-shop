@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { FC } from "react";
 import { useDispatch } from "react-redux";
-import { AiOutlineClose } from "react-icons/ai";
+
 import { removeItem } from "./cartSlice";
 import { Products } from "../../interfaces/CartInterfaces/cart";
 
@@ -15,19 +16,35 @@ const CartItems: FC<Products> = ({
 	const dispatch = useDispatch();
 
 	return (
-		<div className="mt-8 first:mt-0 flex bg-neutral-100 p-8 rounded relative">
-			<div className="absolute right-10 text-4xl cursor-pointer">
-				<AiOutlineClose onClick={() => dispatch(removeItem(Ids))} />
+		<div className="first:mt-0 flex flex-col sm:flex-row p-8">
+			<div className="h-[25rem] w-[20rem]">
+				<img src={img} alt={title} className="w-full h-full object-fit" />
 			</div>
-			<div className="max-w-xs hidden sm:block">
-				<img src={img} alt={title} className="w-full block" />
-			</div>
-			<div className="sm:ml-8">
-				<h2 className="text-4xl capitalize">{title}</h2>
+			<div className="mt-12 sm:mt-0 sm:ml-8 flex flex-col">
+				<h2 className="text-2xl tracking-wide font-semibold lg:text-2xl capitalize">
+					{title}
+				</h2>
 				<h2 className="text-xl mt-2">{author} (Autor)</h2>
-				<h4 className="mt-4 text-2xl font-bold">{price?.toFixed(2)} PLN</h4>
-				<h4 className="text-2xl mt-2">Ilość {cartCount} sztuka</h4>
+				<h4 className="mt-4 text-2xl">{price?.toFixed(2)} PLN</h4>
+				<h4 className="text-2xl mt-2 sm:mt-auto">Ilość {cartCount} sztuka</h4>
 			</div>
+			<span className="text-4xl cursor-pointer mt-4 h-max sm:ml-auto group">
+				<svg
+					onClick={() => dispatch(removeItem(Ids))}
+					xmlns="http://www.w3.org/2000/svg"
+					className="h-10 w-10 group-hover:stroke-[#F25050] transition"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					strokeWidth={2}
+				>
+					<path
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+					/>
+				</svg>
+			</span>
 		</div>
 	);
 };

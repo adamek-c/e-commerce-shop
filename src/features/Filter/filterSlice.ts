@@ -23,7 +23,8 @@ const initialState: FilterBooks = {
 		min_price: 0,
 		max_price: 0,
 	},
-	pending: "loading",
+	pending: "idle",
+	error: "",
 };
 
 export const getBooks = useFetchData();
@@ -95,12 +96,13 @@ const filterSlice = createSlice({
 			state.pending = "loading";
 		});
 		builder.addCase(getBooks.fulfilled, (state, action) => {
-			state.pending = "success";
+			state.pending = "succeeded";
 			state.all_items = action.payload;
 			state.items = action.payload;
 		});
-		builder.addCase(getBooks.rejected, (state) => {
-			state.pending = "idle";
+		builder.addCase(getBooks.rejected, (state, action) => {
+			state.pending = "failed";
+			state.error = action.error.message;
 		});
 	},
 });

@@ -18,17 +18,35 @@ const Cart = () => {
 
 	return (
 		<section>
-			<div className="m-12 max-w-screen-2xl mx-auto px-8 lg:mt-32 min-h-screen">
-				<div className="grid">
+			<div className="max-w-screen-2xl mx-auto  mt-32 min-h-screen flex flex-col lg:flex-row justify-betwee gap-10 ">
+				<div className="lg:flex-grow">
 					{products.map((product) => (
 						<CartItems key={product.Ids} {...product} />
 					))}
 				</div>
-				<div className="my-8">
-					<h2 className="text-3xl">
-						Razem :{" "}
-						<span className="font-bold ml-4">{total.toFixed(2)} PLN</span>
-					</h2>
+				<div className="lg:flex-grow xl:flex-1 space-y-10 flex-wrap bg-[#F2F2F2] p-6 sm:p-16">
+					<span className="text-xl uppercase flex justify-between">
+						cena produktów
+						<span className="text-left">{total.toFixed(2)} PLN</span>
+					</span>
+					<span className="text-xl uppercase flex justify-between">
+						Dostawa<span className=" text-left">OD 0,00 PLN</span>
+					</span>
+					<hr />
+					<span className="text-xl uppercase flex justify-between">
+						<span>
+							<strong>Łączna Kwota</strong> z VAT
+						</span>
+						<span className="text-left font-bold text-2xl">
+							{total.toFixed(2)} PLN
+						</span>
+					</span>
+					<button
+						type="button"
+						className="w-full bg-[#6AD991] text-3xl py-5 text-white font-bold hover:bg-[#1AD991] transition"
+					>
+						Przejdź do kasy
+					</button>
 				</div>
 			</div>
 		</section>
