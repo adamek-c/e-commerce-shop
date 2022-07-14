@@ -19,13 +19,7 @@ const Filter: FC<Open> = ({ open, width }) => {
 	};
 
 	if (width < 1024) {
-		return (
-			<FilterSmall
-				open={open}
-				active={active}
-				handleGiveBooks={handleGiveBooks}
-			/>
-		);
+		return <FilterSmall open={open} handleGiveBooks={handleGiveBooks} />;
 	}
 
 	return (

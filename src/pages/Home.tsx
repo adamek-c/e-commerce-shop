@@ -47,17 +47,23 @@ const Home = () => {
 	if (pending === "succeeded") {
 		content = (
 			<ErrorBoundary>
-				<main className="pt-20 relative overflow-hidden">
+				<main className="pt-20 overflow-hidden">
 					<div className="px-8 grid lg:grid-cols-four max-w-screen-2xl mx-auto min-h-screen gap-8">
-						<div>
+						<div className="relative">
 							<h2
-								className="text-3xl tracking-wider flex items-center cursor-pointer lg:cursor-auto w-max mt-12"
+								className="text-3xl tracking-wider flex cursor-pointer lg:cursor-auto w-max mt-12"
 								onClick={() => setOpen(!open)}
 								aria-hidden="true"
 							>
 								Category
 								<span className="ml-2 lg:hidden">
-									<MdOutlineExpandMore />
+									<span
+										className={`${
+											open ? "rotate-180" : "rotate-0"
+										} material-symbols-outlined transition`}
+									>
+										expand_more
+									</span>
 								</span>
 							</h2>
 							<Filter open={open} width={width} />
