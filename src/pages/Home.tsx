@@ -24,8 +24,6 @@ const Home = () => {
 	const { pending } = useSelector((state: RootState) => state.filter);
 	const { error } = useSelector((state: RootState) => state.filter);
 
-	console.log("render home");
-
 	useEffect(() => {
 		const handleResize = () => setWidth(window.innerWidth);
 		window.addEventListener("resize", handleResize);
