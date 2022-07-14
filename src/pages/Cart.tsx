@@ -26,16 +26,16 @@ const Cart = () => {
 				</div>
 				<div className="lg:flex-grow xl:flex-1 space-y-10 flex-wrap bg-[#F2F2F2] p-6 sm:p-16">
 					<span className="text-xl uppercase flex justify-between">
-						cena produktów
+						product price
 						<span className="text-left">{total.toFixed(2)} PLN</span>
 					</span>
 					<span className="text-xl uppercase flex justify-between">
-						Dostawa<span className=" text-left">OD 0,00 PLN</span>
+						delivery<span className=" text-left">From 0,00 PLN</span>
 					</span>
 					<hr />
 					<span className="text-xl uppercase flex justify-between">
 						<span>
-							<strong>Łączna Kwota</strong> z VAT
+							<strong>total</strong> with VAT
 						</span>
 						<span className="text-left font-bold text-2xl">
 							{total.toFixed(2)} PLN
@@ -45,7 +45,7 @@ const Cart = () => {
 						type="button"
 						className="w-full bg-[#6AD991] text-3xl py-5 text-white font-bold hover:bg-[#1AD991] transition"
 					>
-						Przejdź do kasy
+						Pay
 					</button>
 				</div>
 			</div>

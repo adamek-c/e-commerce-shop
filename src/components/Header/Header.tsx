@@ -33,11 +33,11 @@ const Header = () => {
 							Search
 						</span>
 					</button>
-					<IconHeader icon="person" title="konto" to="" />
+					<IconHeader icon="person" title="account" to="account" />
 					<IconHeader
 						amount={amount}
 						icon="shopping_cart"
-						title="koszyk"
+						title="Cart"
 						to="cart"
 					/>
 				</div>

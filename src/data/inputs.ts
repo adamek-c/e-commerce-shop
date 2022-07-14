@@ -1,4 +1,11 @@
-const inputs = [
+interface Input {
+	id: number;
+	from: number;
+	to: number;
+	name: string;
+}
+
+const inputs: Input[] = [
 	{
 		id: 1,
 		from: 1,
