@@ -24,6 +24,8 @@ const Home = () => {
 	const { pending } = useSelector((state: RootState) => state.filter);
 	const { error } = useSelector((state: RootState) => state.filter);
 
+	console.log("render home");
+
 	useEffect(() => {
 		const handleResize = () => setWidth(window.innerWidth);
 		window.addEventListener("resize", handleResize);
@@ -63,7 +65,7 @@ const Home = () => {
 							<Filter open={open} width={width} />
 						</div>
 
-						<div className="grid gap-24 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 my-12 w-full ">
+						<div className="grid gap-24 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 my-12 w-full justify-items-center">
 							{books.map((book) => (
 								<Books key={book.id} {...book} />
 							))}
