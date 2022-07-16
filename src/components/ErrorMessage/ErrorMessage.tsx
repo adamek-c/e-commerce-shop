@@ -1,7 +1,11 @@
+import Container from "../Container/Container";
+
 const Error = ({ error }: any) => (
-	<section className="max-w-screen-2xl mx-auto min-h-screen pt-20 flex justify-center">
-		<h2 className="text-5xl text-[#F25050] font-bold">{error}</h2>
-	</section>
+	<Container>
+		<section className="flex justify-center pt-20">
+			<h2 className="text-5xl lg:text-6xl text-[#F25050] font-bold">{error}</h2>
+		</section>
+	</Container>
 );
 
 export default Error;

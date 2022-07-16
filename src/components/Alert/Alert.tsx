@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Dispatch, FC, SetStateAction, useEffect } from "react";
 
 interface Props {
