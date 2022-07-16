@@ -1,16 +1,20 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable prettier/prettier */
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import logo from "../../assets/logo.png";
 import IconHeader from "../IconHeader/IconHeader";
 import Search from "../Search/Search";
 import Sign from "../Sign/Sign";
+import CartSmall from "../CartSmall/CartSmall";
 
 const Header = () => {
 	const [open, setOpen] = useState<boolean>(false);
 	const { amount } = useSelector((state: RootState) => state.cart);
+	const { cart } = useSelector((state: RootState) => state.cart);
+	const { pathname } = useLocation();
 
 	const handleOpenSearch = () => {
 		setOpen(!open);
@@ -34,16 +38,21 @@ const Header = () => {
 							Search
 						</span>
 					</button>
-					<span className="group relative lg:pb-2 cursor-pointer">
+					<div className="group relative lg:pb-2 cursor-pointer">
 						<IconHeader icon="person" title="account" to="account" />
 						<Sign />
-					</span>
-					<IconHeader
-						amount={amount}
-						icon="shopping_cart"
-						title="Cart"
-						to="cart"
-					/>
+					</div>
+					<div className="group relative lg:pb-2 cursor-pointer">
+						<IconHeader
+							amount={amount}
+							icon="shopping_cart"
+							title="Cart"
+							to="cart"
+						/>
+						{pathname === "/cart" ? null : cart.length !== 0 ? (
+							<CartSmall />
+						) : null}
+					</div>
 				</div>
 				<button
 					type="button"

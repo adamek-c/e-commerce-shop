@@ -7,7 +7,7 @@ import { calculateTotals } from "../features/Cart/cartSlice";
 
 const Cart = () => {
 	const products = useSelector((state: RootState) => state.cart.cart);
-	const total = useSelector((state: RootState) => state.cart.total);
+	const { total } = useSelector((state: RootState) => state.cart);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(calculateTotals());
