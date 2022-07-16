@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
@@ -27,7 +28,7 @@ const SingleBook = () => {
 
 	return (
 		<section>
-			<div className="mt-12 max-w-screen-2xl mx-auto px-8 lg:mt-32 min-h-screen">
+			<div className="mt-12 max-w-screen-2xl mx-auto px-8 lg:mt-32 min-h-screen ">
 				<div className="max-w-2xl mx-auto p-8  lg:max-w-screen-xl lg:grid lg:grid-cols-2 lg:grid-rows-2 ">
 					<div className="lg:mt-7">
 						<div className="mb-2">
@@ -61,27 +62,29 @@ const SingleBook = () => {
 						<h3 className="text-2xl lg:text-3xl">
 							{product?.price.toFixed(2)} PLN
 						</h3>
-						<button
-							type="button"
-							className="bg-[#6AD991] py-4 px-6 text-3xl text-white hover:drop-shadow-lg mt-10 transition-all flex space-x-2 capitalize"
-							onClick={() =>
-								dispatch(
-									addToCart({
-										Ids,
-										author,
-										img,
-										title,
-										price,
-										cartCount,
-									}),
-								)
-							}
-						>
-							<span>add to cart</span>
-							<span className="material-symbols-outlined">
-								add_shopping_cart
-							</span>
-						</button>
+						<div className="flex items-center space-x-10">
+							<button
+								type="button"
+								className="bg-[#6AD991] py-4 px-6 text-3xl text-white hover:drop-shadow-lg mt-10 transition-all flex space-x-2 capitalize"
+								onClick={() =>
+									dispatch(
+										addToCart({
+											Ids,
+											author,
+											img,
+											title,
+											price,
+											cartCount,
+										}),
+									)
+								}
+							>
+								<span>add to cart</span>
+								<span className="material-symbols-outlined">
+									add_shopping_cart
+								</span>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>

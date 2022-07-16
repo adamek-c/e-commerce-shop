@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 // import pages
-import { Layout, Home, SingleBook, Error, Cart, Account } from "./pages";
+import { Layout, Home, SingleBook, Error, Cart, Account, Login } from "./pages";
 
 const App = () => (
 	<Routes>
@@ -9,6 +9,7 @@ const App = () => (
 			<Route path="account" element={<Account />} />
 			<Route path="cart" element={<Cart />} />
 			<Route path="product/:id" element={<SingleBook />} />
+			<Route path="login" element={<Login />} />
 			<Route path="*" element={<Error />} />
 		</Route>
 	</Routes>

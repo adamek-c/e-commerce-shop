@@ -6,6 +6,7 @@ import { RootState } from "../../app/store";
 import logo from "../../assets/logo.png";
 import IconHeader from "../IconHeader/IconHeader";
 import Search from "../Search/Search";
+import Sign from "../Sign/Sign";
 
 const Header = () => {
 	const [open, setOpen] = useState<boolean>(false);
@@ -19,13 +20,13 @@ const Header = () => {
 		<nav className="w-full border-b bg-inherit relative">
 			{open && <Search handleOpenSearch={handleOpenSearch} />}
 			<div className="flex flex-col md:flex-row items-center px-8 py-16 justify-between max-w-screen-xl mx-auto gap-8">
-				<Link to="/" className="w-48 lg:w-auto">
+				<Link to="/" className="w-48 lg:w-auto lg:pb-2">
 					<img src={logo} alt="Read it logo" />
 				</Link>
 				<div className="flex space-x-4 sm:space-x-8 lg:space-x-10">
 					<button
 						type="button"
-						className="flex items-center space-x-2 group transition"
+						className="flex items-center space-x-2 group transition lg:pb-2"
 						onClick={handleOpenSearch}
 					>
 						<span className="material-symbols-outlined text-4xl">search</span>
@@ -33,7 +34,10 @@ const Header = () => {
 							Search
 						</span>
 					</button>
-					<IconHeader icon="person" title="account" to="account" />
+					<span className="group relative lg:pb-2 cursor-pointer">
+						<IconHeader icon="person" title="account" to="account" />
+						<Sign />
+					</span>
 					<IconHeader
 						amount={amount}
 						icon="shopping_cart"
