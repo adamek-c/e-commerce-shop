@@ -25,7 +25,7 @@ const Cart = () => {
 							<CartItems key={product.Ids} {...product} />
 						))}
 					</div>
-					<div className="lg:flex-grow xl:flex-1 space-y-10 flex-wrap bg-[#F2F2F2] p-6 sm:p-16 min-h-screen">
+					<div className="lg:flex-grow xl:flex-1 space-y-10 flex-wrap bg-[#F2F2F2] p-6 sm:p-16 lg:min-h-screen">
 						<span className="text-xl uppercase flex justify-between">
 							product price
 							<span className="text-left">{total.toFixed(2)} PLN</span>

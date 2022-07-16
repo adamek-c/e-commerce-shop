@@ -1,5 +1,5 @@
 import PulseLoader from "react-spinners/PulseLoader";
-import Container from "../Container/Container";
+import Container from "../shared/Container/Container";
 
 const Loading = () => (
 	<Container>

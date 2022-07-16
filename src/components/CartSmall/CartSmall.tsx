@@ -16,7 +16,7 @@ const CartSmall = () => {
 									<img src={item.img} alt={item.author} />
 								</div>
 								<div className="p-8 text-xl h-full flex flex-col">
-									<h4 className="mb-2">{item.title}</h4>
+									<h4 className="mb-2 capitalize">{item.title}</h4>
 									<p>Quantity: {item.cartCount}</p>
 									<p className="mt-auto self-end">
 										{item.price.toFixed(2)} PLN

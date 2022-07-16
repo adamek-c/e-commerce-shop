@@ -37,7 +37,7 @@ const SingleBook = () => {
 	return (
 		<section>
 			<Container>
-				<div className="max-w-2xl mx-auto p-8 lg:max-w-screen-xl lg:grid lg:grid-cols-2 lg:grid-rows-2 ">
+				<div className="max-w-2xl mx-auto lg:max-w-screen-xl lg:grid lg:grid-cols-2 lg:grid-rows-2 ">
 					<div className="lg:mt-7">
 						<div className="mb-2">
 							<h2 className="text-2xl tracking-wide font-bold lg:text-4xl">

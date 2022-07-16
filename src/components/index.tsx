@@ -10,7 +10,7 @@ import Loading from "./Loading/Loading";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import Alert from "./Alert/Alert";
-import Container from "./Container/Container";
+import Container from "./shared/Container/Container";
 
 export {
 	Header,

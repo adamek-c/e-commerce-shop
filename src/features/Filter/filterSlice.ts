@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-tabs */
@@ -10,6 +12,12 @@ import {
 	Language,
 	Price,
 } from "../../interfaces/FiltrInterfaces/filtr";
+
+enum Pending {
+	Loading = "loading",
+	Succeeded = "succeeded",
+	Failed = "failed",
+}
 
 const initialState: FilterBooks = {
 	all_items: [],
@@ -93,15 +101,15 @@ const filterSlice = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder.addCase(getBooks.pending, (state) => {
-			state.pending = "loading";
+			state.pending = Pending.Loading;
 		});
 		builder.addCase(getBooks.fulfilled, (state, action) => {
-			state.pending = "succeeded";
+			state.pending = Pending.Succeeded;
 			state.all_items = action.payload;
 			state.items = action.payload;
 		});
 		builder.addCase(getBooks.rejected, (state, action) => {
-			state.pending = "failed";
+			state.pending = Pending.Failed;
 			state.error = action.payload;
 		});
 	},
