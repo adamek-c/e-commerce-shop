@@ -9,6 +9,7 @@ import EmptyCard from "./EmptyCard/EmptyCard";
 import Loading from "./Loading/Loading";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import ErrorMessage from "./ErrorMessage/ErrorMessage";
+import Alert from "./Alert/Alert";
 
 export {
 	Header,
@@ -20,4 +21,5 @@ export {
 	Loading,
 	ErrorBoundary,
 	ErrorMessage,
+	Alert,
 };

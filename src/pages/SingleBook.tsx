@@ -1,13 +1,16 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-unused-expressions */
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../app/store";
-import { StarsRating } from "../components";
+import { Alert, StarsRating } from "../components";
 import Error from "./Error";
 import { calculateTotals, addToCart } from "../features/Cart/cartSlice";
 
 const SingleBook = () => {
+	const [alert, setAlert] = useState<boolean>(false);
+
 	const { id } = useParams();
 	const books = useSelector((state: RootState) => state.filter.items);
 	const products = useSelector((state: RootState) => state.cart.cart);
@@ -18,6 +21,11 @@ const SingleBook = () => {
 		dispatch(calculateTotals());
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [products]);
+
+	const handleAlert = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+		e.preventDefault();
+		setAlert(!alert);
+	};
 
 	if (!product?.id) {
 		return <Error />;
@@ -62,11 +70,14 @@ const SingleBook = () => {
 						<h3 className="text-2xl lg:text-3xl">
 							{product?.price.toFixed(2)} PLN
 						</h3>
-						<div className="flex items-center space-x-10">
+						<div className="flex lg:space-x-10 flex-col lg:flex-row max-w-max">
 							<button
 								type="button"
-								className="bg-[#6AD991] py-4 px-6 text-3xl text-white hover:drop-shadow-lg mt-10 transition-all flex space-x-2 capitalize"
-								onClick={() =>
+								disabled={alert}
+								className={`${
+									alert && "cursor-wait"
+								} bg-[#6AD991] py-4 px-6 text-3xl text-white hover:drop-shadow-lg mt-10 transition-all flex  space-x-2 capitalize`}
+								onClick={(e) => {
 									dispatch(
 										addToCart({
 											Ids,
@@ -76,14 +87,16 @@ const SingleBook = () => {
 											price,
 											cartCount,
 										}),
-									)
-								}
+									);
+									handleAlert(e);
+								}}
 							>
 								<span>add to cart</span>
 								<span className="material-symbols-outlined">
 									add_shopping_cart
 								</span>
 							</button>
+							{alert && <Alert setAlert={setAlert} />}
 						</div>
 					</div>
 				</div>
