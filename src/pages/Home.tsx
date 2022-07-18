@@ -11,6 +11,7 @@ import {
 	ErrorBoundary,
 	ErrorMessage,
 	Filter,
+	Footer,
 	Loading,
 } from "../components";
 import { getBooks } from "../features/Filter/filterSlice";
@@ -79,6 +80,7 @@ const Home = () => {
 						</div>
 					</Container>
 				</main>
+				<Footer />
 			</ErrorBoundary>
 		);
 	}

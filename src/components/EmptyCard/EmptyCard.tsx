@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import shopping from "../../assets/shopping.png";
 
 const EmptyCard = () => (
-	<div className="flex flex-1 max-w-screen-xl mx-auto w-full flex-col lg:flex-row lg:space-x-40 min-h-screen h-min">
+	<div className="flex flex-1 max-w-screen-xl mx-auto w-full flex-col lg:flex-row lg:space-x-40 py-20">
 		<div className="6/12 mt-12">
 			<img
 				src={shopping}

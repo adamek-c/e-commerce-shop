@@ -9,7 +9,7 @@ const Input: FC<Props> = ({ props }) => {
 	return (
 		<>
 			<label htmlFor={`${uniqueId}-${props}`}>
-				<span className="after:content-['*'] after:ml-0.5 after:text-[#F25050] capitalize">
+				<span className="after:content-['*'] after:ml-0.5 after:text-[#F25050]">
 					{props}
 				</span>
 			</label>

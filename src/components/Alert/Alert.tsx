@@ -15,7 +15,7 @@ const Alert: FC<Props> = ({ setAlert }) => {
 
 	return (
 		<section>
-			<div className="flex space-x-4 mt-10 items-center border py-4 px-10 border-[#6AD991]">
+			<div className="flex space-x-4 mt-10 items-center border py-4 px-6 border-[#6AD991]">
 				<span className="material-symbols-outlined text-[#6AD991]">
 					check_circle
 				</span>

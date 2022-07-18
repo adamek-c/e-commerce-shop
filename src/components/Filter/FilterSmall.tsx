@@ -20,7 +20,7 @@ const FilterSmall = ({ open, handleGiveBooks }: Props) => {
 	return (
 		<section>
 			{open && (
-				<div className="absolute top-30 left-0 right-0 bg-white w-full z-10 pb-20 space-y-10">
+				<div className="absolute top-30 left-0 right-0 bg-white w-full pb-20 space-y-10 z-50">
 					<h2
 						className="mt-8 text-2xl flex items-center justify-between"
 						onClick={() => setLanguage(!language)}
