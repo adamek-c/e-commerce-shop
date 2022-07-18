@@ -104,6 +104,16 @@
 				// @deprecated Use `functions` option instead.
 				"ignoreFunctionalComponents": false
 			}
-		]
+		],
+		"jsx-a11y/label-has-associated-control": [
+			2,
+			{
+				"labelComponents": ["CustomInputLabel"],
+				"labelAttributes": ["label"],
+				"controlComponents": ["CustomInput"],
+				"depth": 3
+			}
+		],
+		"react/no-unescaped-entities": [0, { "forbid": [">", "\"", "'", "}"] }]
 	}
 }

@@ -11,6 +11,8 @@ import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import Alert from "./Alert/Alert";
 import Container from "./shared/Container/Container";
+import SignIn from "./Login/SignIn";
+import Register from "./Register/Register";
 
 export {
 	Header,
@@ -24,4 +26,6 @@ export {
 	ErrorMessage,
 	Alert,
 	Container,
+	SignIn,
+	Register,
 };

@@ -39,7 +39,7 @@ const Header = () => {
 						</span>
 					</button>
 					<div className="group relative lg:pb-2 cursor-pointer">
-						<IconHeader icon="person" title="account" to="account" />
+						<IconHeader icon="person" title="account" to="login" />
 						<Sign />
 					</div>
 					<div className="group relative lg:pb-2 cursor-pointer">
