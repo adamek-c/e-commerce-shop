@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { FC } from "react";

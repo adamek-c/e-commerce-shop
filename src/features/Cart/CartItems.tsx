@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { FC } from "react";
 import { useDispatch } from "react-redux";
 

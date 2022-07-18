@@ -1,12 +1,11 @@
-/* eslint-disable import/no-named-as-default */
-/* eslint-disable import/no-named-as-default-member */
-/* eslint-disable no-unused-expressions */
 import { useState } from "react";
+import useAutoFocusInput from "../../hooks/useAutoFocusInput";
 import Input from "../shared/Login/Input";
 
 const SignIn = () => {
 	const [signIn, setSignIn] = useState<boolean>(true);
-	// eslint-disable-next-line no-undef
+
+	const refFocus = useAutoFocusInput();
 
 	const handleOpen = () => {
 		setSignIn(!signIn);
@@ -20,7 +19,7 @@ const SignIn = () => {
 			{signIn && (
 				<form className="text-2xl space-y-16">
 					<div className="flex flex-col space-y-4">
-						<Input props="email" />
+						<Input props="email" ref={refFocus} />
 						<div className="text-xl text-[#F25050] hidden">
 							This field is required
 						</div>

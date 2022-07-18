@@ -114,6 +114,17 @@
 				"depth": 3
 			}
 		],
-		"react/no-unescaped-entities": [0, { "forbid": [">", "\"", "'", "}"] }]
+		"react/no-unescaped-entities": [0, { "forbid": [">", "\"", "'", "}"] }],
+		"no-nested-ternary": "off",
+		"prefer-destructuring": [
+			"error",
+			{
+				"array": true,
+				"object": true
+			},
+			{
+				"enforceForRenamedProperties": false
+			}
+		]
 	}
 }

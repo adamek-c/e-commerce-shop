@@ -1,8 +1,5 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-
 import { FC } from "react";
 
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 interface Props {
 	handleOpenSearch: () => void;
 }
@@ -17,12 +14,13 @@ const Search: FC<Props> = ({ handleOpenSearch }) => (
 				placeholder="Search..."
 				className="border p-5 text-2xl mt-4 w-full"
 			/>
-			<div
+			<button
+				type="button"
 				className="material-symbols-outlined ml-auto cursor-pointer"
 				onClick={handleOpenSearch}
 			>
 				close
-			</div>
+			</button>
 		</div>
 	</div>
 );

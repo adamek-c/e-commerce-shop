@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable consistent-return */
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Book } from "../interfaces/FiltrInterfaces/filtr";

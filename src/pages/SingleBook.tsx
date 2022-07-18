@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";

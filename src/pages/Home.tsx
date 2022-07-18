@@ -1,9 +1,5 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable consistent-return */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { MdOutlineExpandMore } from "react-icons/md";
 import { AppDispatch, RootState } from "../app/store";
 import {
 	Books,
@@ -38,6 +34,7 @@ const Home = () => {
 		if (pending === "idle") {
 			dispatch(getBooks());
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	let content;

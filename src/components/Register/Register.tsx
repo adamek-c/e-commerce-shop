@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Input from "../shared/Login/Input";
 
 const Register = () => {
 	const [register, setRegister] = useState<boolean>(false);
 
+	const refFocus = useRef<HTMLInputElement>(null);
+
 	const handleOpen = () => {
 		setRegister(!register);
 	};
+
+	useEffect(() => {
+		if (refFocus) {
+			refFocus.current?.focus();
+		}
+	}, [register]);
 
 	return (
 		<div className="max-w-xl py-40 mx-auto px-10 sm:px-0">
@@ -18,7 +26,7 @@ const Register = () => {
 					{register && (
 						<>
 							<div className="flex flex-col space-y-4">
-								<Input props="email" />
+								<Input props="email" ref={refFocus} />
 								<div className="hidden">This field is required</div>
 							</div>
 							<div className="flex lg:space-x-3 flex-col lg:flex-row">

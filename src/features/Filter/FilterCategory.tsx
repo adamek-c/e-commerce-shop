@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { useSelector, useDispatch } from "react-redux";
 import {
 	filterCategory,
