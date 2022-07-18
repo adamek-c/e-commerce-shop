@@ -4,7 +4,7 @@ const SignIn = () => {
 	const uniqueId = useId();
 
 	return (
-		<div className="max-w-lg pt-40  mx-auto">
+		<div className="max-w-xl py-20  mx-auto px-10 sm:px-0">
 			<h2 className="text-3xl font-bold text-center mb-20">
 				Are you already a user?
 			</h2>
