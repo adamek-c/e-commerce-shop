@@ -43,7 +43,7 @@ const SignIn = () => {
 				</div>
 				<button
 					type="button"
-					className="font-bold text-3xl bg-[#6AD991] text-white w-full py-5"
+					className="font-bold text-3xl bg-[#6AD991] text-white w-full py-5 transition hover:bg-[#1AD991]"
 				>
 					Sign In
 				</button>
