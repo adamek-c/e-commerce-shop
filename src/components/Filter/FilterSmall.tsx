@@ -17,18 +17,16 @@ const FilterSmall = ({ open, handleGiveBooks }: Props) => {
 		<section>
 			{open && (
 				<div className="absolute top-30 left-0 right-0 bg-white w-full pb-20 space-y-10 z-50">
-					<button
-						type="button"
-						className="mt-8 text-2xl flex items-center justify-between"
-						onClick={() => setLanguage(!language)}
-					>
-						Language
-						{language ? (
-							<span className="material-symbols-outlined">remove</span>
-						) : (
-							<span className="material-symbols-outlined">add</span>
-						)}
-					</button>
+					<div className="flex items-center justify-between mt-8">
+						<h3 className="text-2xl">Language</h3>
+						<button type="button" onClick={() => setLanguage(!language)}>
+							{language ? (
+								<span className="material-symbols-outlined ml-0">remove</span>
+							) : (
+								<span className="material-symbols-outlined ml-0">add</span>
+							)}
+						</button>
+					</div>
 					{language && <FilterLanguage />}
 					<hr />
 					<h2
@@ -52,18 +50,16 @@ const FilterSmall = ({ open, handleGiveBooks }: Props) => {
 					</h2>
 					{category && <FilterCategory />}
 					<hr />
-					<button
-						type="button"
-						className="mt-8 text-2xl flex items-center justify-between transition"
-						onClick={() => setPrice(!price)}
-					>
-						Price
-						{price ? (
-							<span className="material-symbols-outlined">remove</span>
-						) : (
-							<span className="material-symbols-outlined">add</span>
-						)}
-					</button>
+					<div className="flex items-center justify-between ">
+						<h3 className=" text-2xl transition w-full">Price</h3>
+						<button type="button" onClick={() => setPrice(!price)}>
+							{price ? (
+								<span className="material-symbols-outlined">remove</span>
+							) : (
+								<span className="material-symbols-outlined">add</span>
+							)}
+						</button>
+					</div>
 					{price && <FilterPrice />}
 				</div>
 			)}
