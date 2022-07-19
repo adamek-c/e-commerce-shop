@@ -125,6 +125,12 @@
 			{
 				"enforceForRenamedProperties": false
 			}
+		],
+		"jsx-a11y/no-autofocus": [
+			0,
+			{
+				"ignoreNonDOM": true
+			}
 		]
 	}
 }

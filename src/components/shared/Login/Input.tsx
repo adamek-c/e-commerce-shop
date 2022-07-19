@@ -1,27 +1,70 @@
-import { forwardRef, useId } from "react";
+import { forwardRef, useId, useState } from "react";
+import PropTypes from "prop-types";
 
 interface Props {
 	props: string;
+	iconVisible?: string;
+	iconHidden?: string;
 }
 
-const Input = forwardRef<HTMLInputElement, Props>(({ props }, ref) => {
-	const uniqueId = useId();
-	return (
-		<>
-			<label htmlFor={`${uniqueId}-${props}`}>
-				<span className="after:content-['*'] after:ml-0.5 after:text-[#F25050] capitalize">
-					{props}
-				</span>
-			</label>
-			<input
-				ref={ref}
-				id={`${uniqueId}-${props}`}
-				name={props}
-				type={props}
-				className="border-b focus:outline-none pb-2 focus:border-b-black bg-inherit"
-			/>
-		</>
-	);
-});
+const Input = forwardRef<HTMLInputElement, Props>(
+	({ props, iconVisible, iconHidden }, ref) => {
+		const uniqueId = useId();
+		const [showPassowrd, setShowPassword] = useState<boolean>(true);
+
+		const handleShowPassword = () => {
+			setShowPassword(!showPassowrd);
+		};
+
+		return (
+			<>
+				<label htmlFor={`${uniqueId}-${props}`}>
+					<span className="after:content-['*'] after:ml-0.5 after:text-[#F25050] capitalize">
+						{props}
+					</span>
+				</label>
+				<div className="relative">
+					<input
+						ref={ref}
+						id={`${uniqueId}-${props}`}
+						name={props}
+						type={props && showPassowrd ? "password" : "text"}
+						className={`${
+							props === "password"
+								? "pr-16 border-b focus:outline-none pb-2 focus:border-b-black bg-inherit w-full"
+								: "pr-0 border-b focus:outline-none pb-2 focus:border-b-black bg-inherit w-full"
+						}`}
+					/>
+					{props === "password" && (
+						<>
+							<div className="group">
+								<button
+									type="button"
+									className="material-symbols-outlined cursor-pointer absolute right-0 -top-4 hover:bg-[#ECECEC] rounded-full p-2 transition"
+									onClick={handleShowPassword}
+								>
+									{showPassowrd ? iconVisible : iconHidden}
+								</button>
+								<p className="hidden group-hover:block text-right mt-4 text-[11px] absolute right-0 capitalize">
+									{showPassowrd ? "show password" : "hide password"}
+								</p>
+							</div>
+							{/* <div>
+								<span className="material-symbols-outlined cursor-pointer absolute right-5 -top-2 invisible text-xs">
+									{iconHidden}
+								</span>
+							</div> */}
+						</>
+					)}
+				</div>
+			</>
+		);
+	},
+);
+
+Input.propTypes = {
+	iconVisible: PropTypes.string.isRequired,
+	iconHidden: PropTypes.string.isRequired,
+};
 
 export default Input;
