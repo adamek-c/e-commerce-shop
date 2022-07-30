@@ -96,7 +96,7 @@
 			{ "singleQuote": false, "parser": "flow", "endOfLine": "auto" }
 		],
 		"react/require-default-props": [
-			1,
+			0,
 			{
 				"forbidDefaultForRequired": false,
 				"classes": "ignore",

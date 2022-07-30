@@ -28,7 +28,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
 						ref={ref}
 						id={`${uniqueId}-${props}`}
 						name={props}
-						type={props && showPassowrd ? "password" : "text"}
+						type={props === "password" && showPassowrd ? "password" : "text"}
 						className={`${
 							props === "password"
 								? "pr-16 border-b focus:outline-none pb-2 focus:border-b-black bg-inherit w-full"
@@ -63,8 +63,8 @@ const Input = forwardRef<HTMLInputElement, Props>(
 );
 
 Input.propTypes = {
-	iconVisible: PropTypes.string.isRequired,
-	iconHidden: PropTypes.string.isRequired,
+	iconVisible: PropTypes.string,
+	iconHidden: PropTypes.string,
 };
 
 export default Input;
