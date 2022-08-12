@@ -21,7 +21,6 @@ const routeNotFound_1 = __importDefault(require("./middleware/routeNotFound"));
 const errorHandler_1 = __importDefault(require("./middleware/errorHandler"));
 require("dotenv/config");
 const connectionDB = process.env.MONGO_URI;
-const port = process.env.PORT || 5000;
 const app = (0, express_1.default)();
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.json());
@@ -31,6 +30,7 @@ app.use("/api/v1", authentication_1.default);
 app.use(routeNotFound_1.default);
 // error default
 app.use(errorHandler_1.default);
+const port = process.env.PORT || 5000;
 const start = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         (0, connect_1.default)(connectionDB);

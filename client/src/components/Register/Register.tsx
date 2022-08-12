@@ -81,12 +81,10 @@ const Register = () => {
 								value={email}
 								onChange={handleChange}
 							/>
-							<div className="hidden">This field is required</div>
 						</div>
 						<div className="flex lg:space-x-3 flex-col lg:flex-row mb-16">
 							<div className="space-y-2 flex flex-col">
 								<Input props="name" value={name} onChange={handleChange} />
-								<div className="hidden">This field is required</div>
 							</div>
 							<div className="space-y-2 flex flex-col mt-16 lg:mt-0">
 								<Input
@@ -94,7 +92,6 @@ const Register = () => {
 									value={lastName}
 									onChange={handleChange}
 								/>
-								<div className="hidden">This field is required</div>
 							</div>
 						</div>
 						<div className="flex flex-col space-y-4 mb-16">
@@ -105,7 +102,6 @@ const Register = () => {
 								value={password}
 								onChange={handleChange}
 							/>
-							<div className="hidden">This field is required</div>
 						</div>
 						<button
 							type="submit"

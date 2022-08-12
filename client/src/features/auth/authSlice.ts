@@ -35,7 +35,13 @@ const userInfo = () => {
 	}
 };
 
-export const removeUserLStorage = () => window.localStorage.removeItem("user");
+export const removeUserLStorage = async () => {
+	try {
+		return await window.localStorage.removeItem("user");
+	} catch (error) {
+		return null;
+	}
+};
 
 const initialState: UserAuth = {
 	user: userInfo(),

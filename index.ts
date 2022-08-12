@@ -8,7 +8,6 @@ import errorHandler from "./middleware/errorHandler";
 import "dotenv/config";
 
 const connectionDB = process.env.MONGO_URI as string;
-const port = process.env.PORT || 5000;
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,6 +21,8 @@ app.use(routeNotFound);
 
 // error default
 app.use(errorHandler);
+
+const port = process.env.PORT || 5000;
 
 const start = async () => {
 	try {

@@ -13,6 +13,7 @@ import Alert from "./Alert/Alert";
 import Container from "./shared/Container/Container";
 import SignIn from "./Login/SignIn";
 import Register from "./Register/Register";
+import LinkAccount from "./LinkAccount/LinkAccount";
 
 export {
 	Header,
@@ -28,4 +29,5 @@ export {
 	Container,
 	SignIn,
 	Register,
+	LinkAccount,
 };
