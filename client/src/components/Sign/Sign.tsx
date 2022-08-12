@@ -8,7 +8,7 @@ const Sign = () => (
 				to="login"
 				className="text-3xl capitalize bg-[#6AD991] text-white py-4 px-16 font-bold transition hover:bg-[#1AD991]"
 			>
-				log in
+				Sign in
 			</Link>
 		</section>
 		<section className="p-16 bg-[#F2F2F2]">
@@ -20,7 +20,7 @@ const Sign = () => (
 				to="login"
 				className="text-3xl capitalize border-2 border-[#6AD991] text-[#6AD991] py-4 px-16 font-bold transition hover:bg-[#6AD991] hover:text-white"
 			>
-				register
+				Sign up
 			</Link>
 		</section>
 	</div>

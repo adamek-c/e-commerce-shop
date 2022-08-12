@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { AppDispatch, RootState } from "../app/store";
 import {
 	Books,
@@ -48,7 +49,7 @@ const Home = () => {
 			<ErrorBoundary>
 				<main className=" overflow-hidden">
 					<Container>
-						<div className="px-8 grid lg:grid-cols-four  gap-8">
+						<div className="px-8 flex flex-col lg:flex-row gap-8">
 							<div className="relative">
 								<h2
 									className="text-3xl tracking-wider flex cursor-pointer lg:cursor-auto w-max mt-12"

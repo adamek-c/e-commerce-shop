@@ -47,7 +47,7 @@ To the project I would like to add an admin dashboard , where the admin would on
 
 ![register](https://user-images.githubusercontent.com/104415821/184074381-1d1e3aa3-0eb8-4c82-bcc7-41a0223cdcaf.png)
 
-![login](https://user-images.githubusercontent.com/104415821/184330386-467accf9-3f74-4ea9-aa55-13162c46523e.png)
+![log in](https://user-images.githubusercontent.com/104415821/184074331-059300fe-f833-42ed-bcf4-84c822f8511e.png)
 
 ![In](https://user-images.githubusercontent.com/104415821/184074415-8a69d9a0-c11a-4867-acd1-7c51a8d14bb8.png)
 
