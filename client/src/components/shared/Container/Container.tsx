@@ -5,9 +5,7 @@ interface Props {
 }
 
 const Container: FC<Props> = ({ children }) => (
-	<div className="mt-12 max-w-screen-2xl mx-auto px-8 min-h-screen">
-		{children}
-	</div>
+	<div className="mt-12 max-w-screen-2xl mx-auto px-8">{children}</div>
 );
 
 export default Container;
