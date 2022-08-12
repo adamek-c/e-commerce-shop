@@ -7,13 +7,20 @@ interface Props {
 	icon: string;
 	title: string;
 	to: string;
+	border?: string;
 }
 
-const IconHeader: FC<Props> = ({ amount, icon, title, to }) => (
+const IconHeader: FC<Props> = ({ amount, icon, title, to, border }) => (
 	<Link to={to} className="cursor-pointer">
 		<div className="relative flex items-center space-x-2 group transition">
 			<span className="material-symbols-outlined text-4xl">{icon}</span>
-			<span className="text-2xl group-hover:border-b border-slate-900 capitalize">
+			<span
+				className={`${
+					border
+						? "group-hover:border-0 text-2xl capitalize"
+						: "group-hover:border-b text-2xl border-slate-900 capitalize"
+				}`}
+			>
 				{title}
 			</span>
 			{amount !== 0 ? (

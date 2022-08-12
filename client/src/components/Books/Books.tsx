@@ -18,13 +18,13 @@ const Books: FC<BooksState> = ({ id, title, img, price }) => (
 					/>
 				</div>
 			</Link>
+			<figcaption>
+				<div className=" text-xl capitalize  rounded-b-xl mt-auto font-medium">
+					<h2 className="pt-8 mb-1">{title}</h2>
+					<span>{price.toFixed(2)} PLN</span>
+				</div>
+			</figcaption>
 		</figure>
-		<figcaption>
-			<div className=" text-xl capitalize  rounded-b-xl mt-auto font-medium">
-				<h2 className="pt-8 mb-1">{title}</h2>
-				<span>{price.toFixed(2)} PLN</span>
-			</div>
-		</figcaption>
 	</article>
 );
 

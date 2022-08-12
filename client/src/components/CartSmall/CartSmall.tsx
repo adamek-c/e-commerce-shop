@@ -34,7 +34,7 @@ const CartSmall = () => {
 						<span className="text-left">{total.toFixed(2)} PLN</span>
 					</div>
 					<div className="text-xl uppercase flex justify-between">
-						delivery<span className=" text-left">From 0,00 PLN</span>
+						delivery<span className=" text-left">From 0.00 PLN</span>
 					</div>
 					<div className="text-xl uppercase flex justify-between ">
 						<span>
@@ -46,12 +46,9 @@ const CartSmall = () => {
 					</div>
 					<div className="w-full">
 						<Link to="cart" className="w-full text-2xl">
-							<button
-								type="button"
-								className="w-full py-4 capitalize bg-[#6AD991] text-white hover:bg-[#1AD991] transition font-bold"
-							>
+							<div className="w-full py-4 capitalize bg-[#6AD991] text-white hover:bg-[#1AD991] transition font-bold text-center">
 								Cart
-							</button>
+							</div>
 						</Link>
 					</div>
 				</div>

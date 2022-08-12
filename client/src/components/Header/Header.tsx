@@ -7,12 +7,16 @@ import IconHeader from "../IconHeader/IconHeader";
 import Search from "../Search/Search";
 import Sign from "../Sign/Sign";
 import CartSmall from "../CartSmall/CartSmall";
+import AccountMenu from "../AccountMenu.tsx/AccountMenu";
+import useUserName from "../../hooks/getUserLocalStorage";
 
 const Header = () => {
 	const [open, setOpen] = useState<boolean>(false);
 	const { amount } = useSelector((state: RootState) => state.cart);
 	const { cart } = useSelector((state: RootState) => state.cart);
 	const { pathname } = useLocation();
+
+	const userName: string = useUserName();
 
 	const handleOpenSearch = () => {
 		setOpen(!open);
@@ -37,8 +41,12 @@ const Header = () => {
 						</span>
 					</button>
 					<div className="group relative lg:pb-2 cursor-pointer">
-						<IconHeader icon="person" title="account" to="login" />
-						<Sign />
+						<IconHeader
+							icon="person"
+							title={userName ? userName.substring(0, 6) : "account"}
+							to={userName ? "my-account" : "login"}
+						/>
+						{userName ? <AccountMenu name={userName} /> : <Sign />}
 					</div>
 					<div className="group relative lg:pb-2 cursor-pointer">
 						<IconHeader
