@@ -22,9 +22,8 @@ const AccountMenu = ({ name }: Props) => {
 	return (
 		<div className="absolute hidden group-hover:lg:block  top-[30px] bg-white border w-[35rem] -right-10 z-20 cursor-auto">
 			<section className="p-16">
-				<h3 className="text-2xl">
-					Welcome, <span className="font-semibold">{name}</span>
-				</h3>
+				<h3 className="text-2xl">Welcome</h3>
+				<h3 className="font-semibold pt-4 text-2xl capitalize">{name}</h3>
 			</section>
 			<hr />
 			<section className="px-16 py-12">
